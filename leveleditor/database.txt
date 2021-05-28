@@ -53,7 +53,7 @@ self.add_pdb('useslowdown (slow player with RMouse) =',"self.useslowdown=", True
 self.add_pdb('slowdownrate (slow player drag multiplier) =',"self.slowdownrate=", 30,'param_slowdownrate')
 self.add_pdb('usestopdown (stop player with RMouse) =',"self.usestopdown=", False,'param_usestopdown')
 self.add_pdb('stopdownmult (slow player speed multiplier) =',"self.stopdownmult=", 0,'param_stopdownmult')
-self.add_pdb('usemovewithkeys (move players with keys WASD or arrows) =',"self.usemovewithkeys=", False,'param_usemovewithkeys')
+self.add_pdb('usemovewithkeys (move players with keys WASD or arrows) =',"self.usemovewithkeys=", True,'param_usemovewithkeys')
 self.add_pdb('movewithkeysampl (move players with keys rate) =',"self.movewithkeysampl=", 3,'param_movewithkeysampl')
 self.add_pdb('movewithkeysendspeedmult (speed mult when key press ends,=0 to stop) =',"self.movewithkeysendspeedmult=", 0.5,'param_movewithkeysendspeedmult')
 self.add_pdb('usedebugreplace (place player anywhere with MMouse: for cheating!) =',"self.usedebugreplace=", False,'param_usedebugreplace')

@@ -33,7 +33,7 @@ self.mousestopmult=0#param_mousestopmult#0#0#
   #param_playerabiind# #0#
 self.useslowdown=True#param_useslowdown#True#0#
 self.slowdownrate=0.8#param_slowdownrate#0.8#0#
-self.usemovewithkeys=False#param_usemovewithkeys#False#0#
+self.usemovewithkeys=True#param_usemovewithkeys#False#0#
 self.movewithkeysampl=3#param_movewithkeysampl#3#0#
 self.movewithkeysendspeedmult=0.5#param_movewithkeysendspeedmult#0.5#0#
 self.usedebugreplace=True#param_usedebugreplace#True#0#
