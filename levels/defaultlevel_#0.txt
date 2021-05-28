@@ -1,0 +1,5 @@
+self.hitsleft=999#shotsleft#999#0#
+self.background=obj_background("background0",self)#background0#0#0#
+self.borders=obj_borders("borders0",self)#borders0#0#0#
+self.music="64 Cast List.mp3"#music_castl#0#0#
+if domusic and self.creator.music != self.music: self.creator.changemusic(self.music)#musicchange#0#0#

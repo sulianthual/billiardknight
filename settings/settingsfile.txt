@@ -1,0 +1,7 @@
+domusic#True#
+dosound#True#
+resolutionx#1280#
+resolutiony#720#
+scalingmethod#s2x#
+displaymode#windowed#
+doazerty#False#

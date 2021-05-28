@@ -1,0 +1,29 @@
+
+Credits:
+
+A game by Sulian Thual, 2020 (GNU General Public License v3.0). All musics from PlayOnLoop.com (Licensed under Creative Commons by Attribution 4.0). Sounds from Kenney.nl (License CC0 1.0 Universal), Juhani Junkala (License CC0 creative commons), and opengameart.org (Fupi and Johan Brodd 2014, License Public Domain).
+
+###############################
+Musics:
+
+All from PlayOnLoop.com
+
+Credit example 1:
+Background music from PlayOnLoop.com
+Licensed under Creative Commons by Attribution 4.0
+
+Credit example 2:
+Music: “Galactic Trek”, from PlayOnLoop.com
+Licensed under Creative Commons by Attribution 4.0
+
+###############################
+Musics credited as sounds (because short):
+
+opengameart.org: 8bit-death-whirl (by Fupi, Licensed Public Domain), 
+opengameart.org: Open Surge score jingle, by Johan Brodd 2014 (Licensed Public Domain).
+
+###############################
+Sounds: 
+Kenney Sounds (kenney.nl): (all the impact_....ogg)
+The Essential Retro Video Game Sound Effects Collection (Juhani Junkala): (all the sfx_...wav)
+

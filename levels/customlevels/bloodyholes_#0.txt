@@ -1,0 +1,107 @@
+self.m0player=1#param_m0player#1#0#
+  #param_forcesblank# #0#
+  #param_forcesind# #0#
+self.fgravi=1.5#param_fgravi#1.5#0#
+self.fvisco=30#param_fvisco#30#0#
+self.fvisco_ice=0#param_fvisco_ice#0#0#
+self.fgyre=0.03#param_fgyre#0.03#0#
+self.fgyrec=0.5#param_fgyrec#0.5#0#
+self.fcorio=0.1#param_fcorio#0.1#0#
+self.fspring=0.5#param_fspring#0.5#0#
+  #param_playerlevelblank# #0#
+  #param_levelind# #0#
+self.cameramode=0#param_cameramode#0#0#
+self.cameradist=150#param_cameradist#150#0#
+self.doplayarea=True#param_doplayarea#True#0#
+self.dplay=100#param_dplay#100#0#
+self.use_mcircle_collisions=True#param_use_mcircle_collisions#True#0#
+self.texton=True#param_texton#True#0#
+  #param_blank# #0#
+  #param_playershotind# #0#
+self.maxshoot=500#param_maxshoot#500#0#
+self.usechargeshot=True#param_usechargeshot#True#0#
+self.useautochargeshot=False#param_useautochargeshot#False#0#
+self.usehovershot=False#param_usehovershot#False#0#
+self.usewarpshot=False#param_usewarpshot#False#0#
+self.useslowmoshot=False#param_useslowmoshot#False#0#
+self.use4dirshot=False#param_use4dirshot#False#0#
+self.useshotswimsound=False#param_useshotswimsound#False#0#
+self.useshotjumpsound=False#param_useshotjumpsound#False#0#
+  #param_blank# #0#
+self.cooldown=25#param_cooldown#25#0#
+self.shootspeedmult=0#param_shootspeedmult#0#0#
+self.cshootmax=1#param_cshootmax#1#0#
+self.cshootmin=0.25#param_cshootmin#0.25#0#
+self.chargeshotspeed=1.05#param_chargeshotspeed#1.05#0#
+self.autochargeshotspeed=1.05#param_autochargeshotspeed#1.05#0#
+self.hovertime=10#param_hovertime#10#0#
+self.hovercd=0.01#param_hovercd#0.01#0#
+self.hoverendspeedmult=0#param_hoverendspeedmult#0#0#
+self.usemousestop=False#param_usemousestop#False#0#
+self.mousestopmult=0#param_mousestopmult#0#0#
+  #param_blank# #0#
+  #param_playerabiind# #0#
+self.useslowdown=True#param_useslowdown#True#0#
+self.slowdownrate=0.8#param_slowdownrate#0.8#0#
+self.usestopdown=False#param_usestopdown#False#0#
+self.stopdownmult=0#param_stopdownmult#0#0#
+self.usemovewithkeys=True#param_usemovewithkeys#True#0#
+self.movewithkeysampl=3#param_movewithkeysampl#3#0#
+self.movewithkeysendspeedmult=0.5#param_movewithkeysendspeedmult#0.5#0#
+self.usedebugreplace=True#param_usedebugreplace#True#0#
+self.useslowdowntime=False#param_useslowdowntime#False#0#
+self.slowdowntimerate=0.1#param_slowdowntimerate#0.1#0#
+  #param_collisionsblank# #0#
+  #param_collisionsind# #0#
+self.cor_mc=1#param_cor_mc#1#0#
+self.cort_mc=1#param_cort_mc#1#0#
+self.cor_bdry=0.7#param_cor_bdry#0.7#0#
+self.cort_bdry=0.85#param_cort_bdry#0.85#0#
+self.cor=0.7#param_cor#0.7#0#
+self.cort=0.85#param_cort#0.85#0#
+self.cor_sp=0.01#param_cor_sp#0.01#0#
+self.cort_sp=0.1#param_cort_sp#0.1#0#
+self.cor_pk=1.2#param_cor_pk#1.2#0#
+self.cort_pk=1#param_cort_pk#1#0#
+  #param_blank# #0#
+  #param_physicsind# #0#
+self.cd0=0.01#param_cd0#0.01#0#
+self.m0=1#param_m0#1#0#
+self.background=obj_background("background0",self)#background0#0#0#
+self.borders=obj_borders("borders0",self)#borders0#0#0#
+self.boundaries=obj_boundaries(40,1240,40,680,40,(255, 255, 255),"bdry_0",self)#bdry_0#0#0#
+self.music="none"#nomusic#0#0#
+music.change(self.music)#musicchange#0#0#
+self.enemies.append(obj_enemy1(802,359,self))#enemy1#802#359#
+self.enemies.append(obj_enemy1(879,438,self))#enemy1#879#438#
+self.enemies.append(obj_enemy1(958,521,self))#enemy1#958#521#
+self.enemies.append(obj_enemy1(881,280,self))#enemy1#881#280#
+self.enemies.append(obj_enemy1(960,193,self))#enemy1#960#193#
+self.player=obj_player(641,359,self)#player#641#359#
+self.enemies.append(obj_enemy1(480,358,self))#enemy1#480#358#
+self.enemies.append(obj_enemy1(401,440,self))#enemy1#401#440#
+self.enemies.append(obj_enemy1(323,518,self))#enemy1#323#518#
+self.enemies.append(obj_enemy1(400,279,self))#enemy1#400#279#
+self.enemies.append(obj_enemy1(320,198,self))#enemy1#320#198#
+self.holesfinish.append(obj_holefinish(641,359,25,"data/bk_imgholefinish.png",self))#holefinish#641#359#
+self.holes.append(obj_holebloody(640,67,25,"data/bk_imghole.png",self))#holeblood#640#67#
+self.holes.append(obj_holebloody(641,657,25,"data/bk_imghole.png",self))#holeblood#641#657#
+self.holes.append(obj_holebloody(1213,655,25,"data/bk_imghole.png",self))#holeblood#1213#655#
+self.holes.append(obj_holebloody(1213,67,25,"data/bk_imghole.png",self))#holeblood#1213#67#
+self.holes.append(obj_holebloody(65,66,25,"data/bk_imghole.png",self))#holeblood#65#66#
+self.holes.append(obj_holebloody(64,655,25,"data/bk_imghole.png",self))#holeblood#64#655#
+self.holes.append(obj_holesmallbloody(558,239,15,"data/bk_imgholesmall.png",self))#holesmallblood#558#239#
+self.holes.append(obj_holesmallbloody(641,239,15,"data/bk_imgholesmall.png",self))#holesmallblood#641#239#
+self.holes.append(obj_holesmallbloody(721,240,15,"data/bk_imgholesmall.png",self))#holesmallblood#721#240#
+self.enemies.append(obj_enemy3(561,359,self))#enemy3#561#359#
+self.enemies.append(obj_enemy3(719,357,self))#enemy3#719#357#
+self.enemies.append(obj_enemy3(640,436,self))#enemy3#640#436#
+self.enemies.append(obj_enemy3(638,285,self))#enemy3#638#285#
+self.holes.append(obj_holesmallbloody(641,480,15,"data/bk_imgholesmall.png",self))#holesmallblood#641#480#
+self.holes.append(obj_holesmallbloody(718,482,15,"data/bk_imgholesmall.png",self))#holesmallblood#718#482#
+self.holes.append(obj_holesmallbloody(560,480,15,"data/bk_imgholesmall.png",self))#holesmallblood#560#480#
+self.holes.append(obj_holebigbloody(1121,361,50,"data/bk_imgholebig.png",self))#holebigblood#1121#361#
+self.holes.append(obj_holebigbloody(159,359,50,"data/bk_imgholebig.png",self))#holebigblood#159#359#
+self.enemies.append(obj_enemy2(961,362,self))#enemy2#961#362#
+self.enemies.append(obj_enemy2(324,360,self))#enemy2#324#360#
+self.text.append("test with bloody holes")#text#0#0#

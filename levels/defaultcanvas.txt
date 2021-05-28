@@ -1,0 +1,6 @@
+self.hitsleft=999#shotsleft#999#0#
+self.background=obj_background("background0",self)#background0#0#0#
+self.borders=obj_borders("borders0",self)#borders0#0#0#
+self.ops.append(obj_opsenemyfallsinhole([False],self))#enemyhitshole#35#567#
+self.player=obj_player(201,300,self)#player#201#300#
+self.holesfinish.append(obj_holefinish(402,300,25,"data/bk_imgholefinish.png",self))#holefinish#402#300#

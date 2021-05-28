@@ -1,0 +1,76 @@
+self.cort_bdry=1#param_cort_bdry#1#0#
+self.cor=0.7#param_cor#0.7#0#
+self.cort=0.85#param_cort#0.85#0#
+self.cor_sp=0.01#param_cor_sp#0.01#0#
+self.cort_sp=0.1#param_cort_sp#0.1#0#
+self.cor_pk=1.2#param_cor_pk#1.2#0#
+self.cort_pk=1#param_cort_pk#1#0#
+  #param_blank# #0#
+  #param_physicsind# #0#
+self.cd0=0.01#param_cd0#0.01#0#
+self.m0=1#param_m0#1#0#
+self.m0player=1#param_m0player#1#0#
+  #param_forcesblank# #0#
+  #param_forcesind# #0#
+self.fgravi=0.5#param_fgravi#0.5#0#
+self.fvisco=30#param_fvisco#30#0#
+self.fvisco_ice=0#param_fvisco_ice#0#0#
+self.fgyre=0.03#param_fgyre#0.03#0#
+self.fgyrec=0.5#param_fgyrec#0.5#0#
+self.fcorio=0.1#param_fcorio#0.1#0#
+self.fspring=0.5#param_fspring#0.5#0#
+  #param_playerlevelblank# #0#
+  #param_levelind# #0#
+self.cameramode=0#param_cameramode#0#0#
+self.cameradist=100#param_cameradist#100#0#
+self.doplayarea=True#param_doplayarea#True#0#
+self.dplay=100#param_dplay#100#0#
+self.texton=True#param_texton#True#0#
+  #param_blank# #0#
+  #param_playershotind# #0#
+self.maxshoot=500#param_maxshoot#500#0#
+self.usereload=True#param_usereload#True#0#
+self.reloadtime=25#param_reloadtime#25#0#
+self.usechargeshot=True#param_usechargeshot#True#0#
+self.chargeshotspeed=1.05#param_chargeshotspeed#1.05#0#
+self.shootspeedmult=0#param_shootspeedmult#0#0#
+  #param_blank# #0#
+  #param_playershotind# #0#
+self.usewarpshot=False#param_usewarpshot#False#0#
+self.shootinwater=False#param_shootinwater#False#0#
+self.usemagicshot=False#param_usemagicshot#False#0#
+self.magicshotmaxtime=10#param_magicshotmaxtime#10#0#
+self.magicshotendspeedmult=0#param_magicshotendspeedmult#0#0#
+self.magicshotcd=0.01#param_magicshotcd#0.01#0#
+self.aimingslowstime=False#param_aimingslowstime#False#0#
+self.aimingslowstimerate=0.1#param_aimingslowstimerate#0.1#0#
+self.use8dir=False#param_use8dir#False#0#
+  #param_blank# #0#
+  #param_playerabiind# #0#
+self.useslowdown=True#param_useslowdown#True#0#
+self.slowdownrate=30#param_slowdownrate#30#0#
+self.usemovewithkeys=False#param_usemovewithkeys#False#0#
+self.movewithkeysampl=3#param_movewithkeysampl#3#0#
+self.movewithkeysendspeedmult=0.5#param_movewithkeysendspeedmult#0.5#0#
+self.usedebugreplace=False#param_usedebugreplace#False#0#
+  #param_blank# #0#
+self.useslowdowntime=False#param_useslowdowntime#False#0#
+self.slowdowntimerate=0.1#param_slowdowntimerate#0.1#0#
+  #param_collisionsblank# #0#
+  #param_collisionsind# #0#
+self.cor_mc=1#param_cor_mc#1#0#
+self.cort_mc=1#param_cort_mc#1#0#
+self.cor_bdry=0.7#param_cor_bdry#0.7#0#
+self.background=obj_background("background0",self)#background0#0#0#
+self.borders=obj_borders("borders0",self)#borders0#0#0#
+self.boundaries=obj_boundaries(40,1240,40,680,40,(255, 255, 255),"bdry_0",self)#bdry_0#0#0#
+self.music="none"#nomusic#0#0#
+music.change(self.music)#musicchange#0#0#
+self.player=obj_player(202,301,self)#player#202#301#
+self.enemies.append(obj_enemy1(802,398,self))#enemy1#802#398#
+self.holesfinish.append(obj_holefinish(800,517,25,"data/bk_imgholefinish.png",self))#holefinish#800#517#
+self.obstacles.append(obj_rectangularobstacle(640,241,25,200,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall8h.png",self))#box1hhh#640#241#
+self.forces.append(obj_forcegravityeverywhere([359,566,100,self.fgravi,-90,"None"],self))#gravityall1#359#566#
+self.obstacles.append(obj_rectangularobstacle(643,566,25,100,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall4h.png",self))#box1hh#643#566#
+self.boundaries.makeperiodicinx()#bdryperiodicx#819#612#
+self.holes.append(obj_hole(580,70,25,"data/bk_imghole.png",self))#hole#580#70#

@@ -1,0 +1,112 @@
+self.hovercd=0#param_hovercd#0#0#
+self.hoverendspeedmult=0#param_hoverendspeedmult#0#0#
+self.usemousestop=False#param_usemousestop#False#0#
+self.mousestopmult=0#param_mousestopmult#0#0#
+  #param_blank# #0#
+  #param_playerabiind# #0#
+self.useslowdown=False#param_useslowdown#False#0#
+self.slowdownrate=30#param_slowdownrate#30#0#
+self.usestopdown=True#param_usestopdown#True#0#
+self.stopdownmult=0#param_stopdownmult#0#0#
+self.usemovewithkeys=False#param_usemovewithkeys#False#0#
+self.movewithkeysampl=3#param_movewithkeysampl#3#0#
+self.movewithkeysendspeedmult=0.5#param_movewithkeysendspeedmult#0.5#0#
+self.usedebugreplace=False#param_usedebugreplace#False#0#
+self.useslowdowntime=False#param_useslowdowntime#False#0#
+self.slowdowntimerate=0.1#param_slowdowntimerate#0.1#0#
+  #param_collisionsblank# #0#
+  #param_collisionsind# #0#
+self.cor_mc=1#param_cor_mc#1#0#
+self.cort_mc=1#param_cort_mc#1#0#
+self.cor_bdry=0.7#param_cor_bdry#0.7#0#
+self.cort_bdry=0.85#param_cort_bdry#0.85#0#
+self.cor=0.7#param_cor#0.7#0#
+self.cort=0.85#param_cort#0.85#0#
+self.cor_sp=0.01#param_cor_sp#0.01#0#
+self.cort_sp=0.1#param_cort_sp#0.1#0#
+self.cor_pk=1.2#param_cor_pk#1.2#0#
+self.cort_pk=1#param_cort_pk#1#0#
+  #param_blank# #0#
+  #param_physicsind# #0#
+self.cd0=0.01#param_cd0#0.01#0#
+self.m0=1#param_m0#1#0#
+self.m0player=1#param_m0player#1#0#
+  #param_forcesblank# #0#
+  #param_forcesind# #0#
+self.fgravi=1.5#param_fgravi#1.5#0#
+self.fvisco=30#param_fvisco#30#0#
+self.fvisco_ice=0#param_fvisco_ice#0#0#
+self.fgyre=0.03#param_fgyre#0.03#0#
+self.fgyrec=0.5#param_fgyrec#0.5#0#
+self.fcorio=0.1#param_fcorio#0.1#0#
+self.fspring=0.5#param_fspring#0.5#0#
+  #param_playerlevelblank# #0#
+  #param_levelind# #0#
+self.cameramode=0#param_cameramode#0#0#
+self.cameradist=150#param_cameradist#150#0#
+self.doplayarea=True#param_doplayarea#True#0#
+self.dplay=100#param_dplay#100#0#
+self.use_mcircle_collisions=True#param_use_mcircle_collisions#True#0#
+self.texton=True#param_texton#True#0#
+  #param_blank# #0#
+  #param_playershotind# #0#
+self.maxshoot=300#param_maxshoot#300#0#
+self.usechargeshot=True#param_usechargeshot#True#0#
+self.useautochargeshot=False#param_useautochargeshot#False#0#
+self.usehovershot=True#param_usehovershot#True#0#
+self.usewarpshot=False#param_usewarpshot#False#0#
+self.useslowmoshot=False#param_useslowmoshot#False#0#
+self.use4dirshot=False#param_use4dirshot#False#0#
+self.useshotswimsound=False#param_useshotswimsound#False#0#
+self.useshotjumpsound=True#param_useshotjumpsound#True#0#
+  #param_blank# #0#
+self.cooldown=25#param_cooldown#25#0#
+self.shootspeedmult=0#param_shootspeedmult#0#0#
+self.cshootmax=1#param_cshootmax#1#0#
+self.cshootmin=0.25#param_cshootmin#0.25#0#
+self.chargeshotspeed=1.05#param_chargeshotspeed#1.05#0#
+self.autochargeshotspeed=1.05#param_autochargeshotspeed#1.05#0#
+self.hovertime=20#param_hovertime#20#0#
+self.background=obj_background("background4",self)#background4#0#0#
+self.borders=obj_borders("borders0",self)#borders0#0#0#
+self.boundaries=obj_boundaries(40,1240,40,680,40,(255, 255, 255),"bdry_0",self)#bdry_0#0#0#
+self.music="fast3"#music_fast3#0#0#
+music.change(self.music)#musicchange#0#0#
+self.forces.append(obj_forcegravityeverywhere([304,617,100,self.fgravi,-90,"None"],self))#gravityall1#304#617#
+self.holes.append(obj_holebig(322,359,50,"data/bk_imgholebig.png",self))#holebig#322#359#
+self.holes.append(obj_holebig(962,358,50,"data/bk_imgholebig.png",self))#holebig#962#358#
+self.holes.append(obj_holebig(1121,601,50,"data/bk_imgholebig.png",self))#holebig#1121#601#
+self.holes.append(obj_holebig(162,601,50,"data/bk_imgholebig.png",self))#holebig#162#601#
+self.holesfinish.append(obj_holefinish(640,639,25,"data/bk_imgholefinish.png",self))#holefinish#640#639#
+self.obstacles.append(obj_righttriangleobstacle(518,288,100,50,3,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedw3.png",self))#triangle2w3#518#288#
+self.obstacles.append(obj_righttriangleobstacle(761,287,100,50,4,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedw4.png",self))#triangle2w4#761#287#
+self.obstacles.append(obj_rectangularobstacle(641,240,25,200,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall8h.png",self))#box1hhh#641#240#
+self.decos.append(obj_deco(539,171,100,50,"data/bk_imgdeco_cloud2.png",self))#decocloud2#539#171#
+self.decos.append(obj_deco(711,99,50,50,"data/bk_imgdeco_cloud1a.png",self))#decocloud1a#711#99#
+self.player=obj_player(585,67,self)#player#585#67#
+self.obstacles.append(obj_rectangularobstacle(1041,241,50,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall2w.png",self))#box1w#1041#241#
+self.obstacles.append(obj_rectangularobstacle(91,454,50,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall2w.png",self))#box1w#91#454#
+self.obstacles.append(obj_rectangularobstacle(1188,454,50,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall2w.png",self))#box1w#1188#454#
+self.holes.append(obj_hole(220,416,25,"data/bk_imghole.png",self))#hole#220#416#
+self.obstacles.append(obj_rectangularobstacle(242,240,50,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall2w.png",self))#box1w#242#240#
+self.obstacles.append(obj_roundobstacle(442,398,70,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclemb.png",self))#circle23#442#398#
+self.obstacles.append(obj_roundobstacle(840,398,70,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclemb.png",self))#circle23#840#398#
+self.obstacles.append(obj_rectangularobstacle(641,443,200,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall8w.png",self))#box1www#641#443#
+self.obstacles.append(obj_roundobstacle(546,366,100,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclebigsp.png",self))#circle3sp#546#366#
+self.obstacles.append(obj_roundobstacle(721,376,70,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclemb.png",self))#circle23#721#376#
+self.obstacles.append(obj_roundobstacle(668,270,35,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclesms_sp.png",self))#circle12sp#668#270#
+self.obstacles.append(obj_roundobstacle(787,357,50,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclemedsp.png",self))#circle2sp#787#357#
+self.obstacles.append(obj_roundobstacle(828,400,25,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclesmallsp.png",self))#circle1sp#828#400#
+self.obstacles.append(obj_roundobstacle(444,333,25,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclesmallsp.png",self))#circle1sp#444#333#
+self.enemies.append(obj_enemy1fly(374,479,self))#enemy1fly#374#479#
+self.enemies.append(obj_enemy1fly(902,480,self))#enemy1fly#902#480#
+self.enemies.append(obj_enemy1fly(641,497,self))#enemy1fly#641#497#
+self.enemies.append(obj_enemy1fly(560,497,self))#enemy1fly#560#497#
+self.enemies.append(obj_enemy1fly(480,496,self))#enemy1fly#480#496#
+self.enemies.append(obj_enemy1fly(722,498,self))#enemy1fly#722#498#
+self.enemies.append(obj_enemy1fly(801,499,self))#enemy1fly#801#499#
+self.holes.append(obj_hole(1063,416,25,"data/bk_imghole.png",self))#hole#1063#416#
+self.holes.append(obj_hole(722,200,25,"data/bk_imghole.png",self))#hole#722#200#
+self.holes.append(obj_hole(561,200,25,"data/bk_imghole.png",self))#hole#561#200#
+self.player.maxshootdist=300#extracommands#0#0#
+self.player.maxshot=100#extracommands#0#0#

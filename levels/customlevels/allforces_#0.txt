@@ -1,0 +1,134 @@
+self.usewarpshot=False#param_usewarpshot#False#0#
+self.useslowmoshot=False#param_useslowmoshot#False#0#
+self.use4dirshot=False#param_use4dirshot#False#0#
+self.useshotswimsound=False#param_useshotswimsound#False#0#
+self.useshotjumpsound=False#param_useshotjumpsound#False#0#
+  #param_blank# #0#
+self.cooldown=25#param_cooldown#25#0#
+self.shootspeedmult=0#param_shootspeedmult#0#0#
+self.cshootmax=1#param_cshootmax#1#0#
+self.cshootmin=0.25#param_cshootmin#0.25#0#
+self.chargeshotspeed=1.05#param_chargeshotspeed#1.05#0#
+self.autochargeshotspeed=1.05#param_autochargeshotspeed#1.05#0#
+self.hovertime=10#param_hovertime#10#0#
+self.hovercd=0.01#param_hovercd#0.01#0#
+self.hoverendspeedmult=0#param_hoverendspeedmult#0#0#
+self.usemousestop=False#param_usemousestop#False#0#
+self.mousestopmult=0#param_mousestopmult#0#0#
+  #param_blank# #0#
+  #param_playerabiind# #0#
+self.useslowdown=True#param_useslowdown#True#0#
+self.slowdownrate=0.8#param_slowdownrate#0.8#0#
+self.usestopdown=False#param_usestopdown#False#0#
+self.stopdownmult=0#param_stopdownmult#0#0#
+self.usemovewithkeys=True#param_usemovewithkeys#True#0#
+self.movewithkeysampl=3#param_movewithkeysampl#3#0#
+self.movewithkeysendspeedmult=0.5#param_movewithkeysendspeedmult#0.5#0#
+self.usedebugreplace=True#param_usedebugreplace#True#0#
+self.useslowdowntime=False#param_useslowdowntime#False#0#
+self.slowdowntimerate=0.1#param_slowdowntimerate#0.1#0#
+  #param_collisionsblank# #0#
+  #param_collisionsind# #0#
+self.cor_mc=1#param_cor_mc#1#0#
+self.cort_mc=1#param_cort_mc#1#0#
+self.cor_bdry=0.7#param_cor_bdry#0.7#0#
+self.cort_bdry=0.85#param_cort_bdry#0.85#0#
+self.cor=0.7#param_cor#0.7#0#
+self.cort=0.85#param_cort#0.85#0#
+self.cor_sp=0.01#param_cor_sp#0.01#0#
+self.cort_sp=0.1#param_cort_sp#0.1#0#
+self.cor_pk=1.2#param_cor_pk#1.2#0#
+self.cort_pk=1#param_cort_pk#1#0#
+  #param_blank# #0#
+  #param_physicsind# #0#
+self.cd0=0.01#param_cd0#0.01#0#
+self.m0=1#param_m0#1#0#
+self.m0player=1#param_m0player#1#0#
+  #param_forcesblank# #0#
+  #param_forcesind# #0#
+self.fgravi=0.5#param_fgravi#0.5#0#
+self.fvisco=30#param_fvisco#30#0#
+self.fvisco_ice=0#param_fvisco_ice#0#0#
+self.fgyre=0.03#param_fgyre#0.03#0#
+self.fgyrec=0.5#param_fgyrec#0.5#0#
+self.fcorio=0.1#param_fcorio#0.1#0#
+self.fspring=0.5#param_fspring#0.5#0#
+  #param_playerlevelblank# #0#
+  #param_levelind# #0#
+self.cameramode=1#param_cameramode#1#0#
+self.cameradist=100#param_cameradist#100#0#
+self.doplayarea=True#param_doplayarea#True#0#
+self.dplay=100#param_dplay#100#0#
+self.use_mcircle_collisions=True#param_use_mcircle_collisions#True#0#
+self.texton=True#param_texton#True#0#
+  #param_blank# #0#
+  #param_playershotind# #0#
+self.maxshoot=500#param_maxshoot#500#0#
+self.usechargeshot=True#param_usechargeshot#True#0#
+self.useautochargeshot=False#param_useautochargeshot#False#0#
+self.usehovershot=False#param_usehovershot#False#0#
+self.background=obj_background("background1",self)#background1#0#0#
+self.borders=obj_borders("borders0",self)#borders0#0#0#
+self.boundaries=obj_boundaries(-1240,2520,-680,1400,40,(255, 255, 255),"bdry_0w3h3c",self)#bdry_0w3h3c#0#0#
+self.music="none"#nomusic#0#0#
+music.change(self.music)#musicchange#0#0#
+self.player=obj_player(641,358,self)#player#641#358#
+self.obstacles.append(obj_movingcircle([804,479,50,80,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2b.png"],self))#mcircle2b#804#479#
+self.obstacles.append(obj_movingcircle([799,238,50,80,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2b.png"],self))#mcircle2b#799#238#
+self.obstacles.append(obj_movingcircle([482,239,50,80,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2b.png"],self))#mcircle2b#482#239#
+self.obstacles.append(obj_movingcircle([479,480,50,80,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2b.png"],self))#mcircle2b#479#480#
+self.obstacles.append(obj_movingcircle([641,559,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle1a.png"],self))#mcircle1a#641#559#
+self.obstacles.append(obj_movingcircle([918,360,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle1a.png"],self))#mcircle1a#918#360#
+self.obstacles.append(obj_movingcircle([361,357,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle1a.png"],self))#mcircle1a#361#357#
+self.obstacles.append(obj_movingcircle([640,156,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle1a.png"],self))#mcircle1a#640#156#
+self.forces.append(obj_forceviscosityincircle([self.fvisco,642,720,50,"data/bk_imgforce_spillmed.png"],self))#spill2#642#720#
+self.forces.append(obj_forceviscosityincircle([self.fvisco,320,720,25,"data/bk_imgforce_spillsmall.png"],self))#spill1#320#720#
+self.forces.append(obj_forceviscosityinbox([self.fvisco,1923,720,50,50,"data/bk_imgforce_viscosityboxsmall.png"],self))#viscoboxs#1923#720#
+self.forces.append(obj_forceviscosityinbox([self.fvisco,2242,718,100,100,"data/bk_imgforce_viscositybox.png"],self))#viscobox#2242#718#
+self.forces.append(obj_forcegravityinbox([-1119,1259,50,50,self.fgravi,-90,"data/bk_imgforce_gravityboxsmall1.png"],self))#gravitybox1s#-1119#1259#
+self.forces.append(obj_forcegravityinbox([-888,1258,50,50,self.fgravi,  0,"data/bk_imgforce_gravityboxsmall2.png"],self))#gravitybox2s#-888#1258#
+self.forces.append(obj_forcegravityinbox([-668,1260,50,50,self.fgravi, 90,"data/bk_imgforce_gravityboxsmall3.png"],self))#gravitybox3s#-668#1260#
+self.forces.append(obj_forcegravityinbox([-437,1262,50,50,self.fgravi,180,"data/bk_imgforce_gravityboxsmall4.png"],self))#gravitybox4s#-437#1262#
+self.forces.append(obj_forcegravityinbox([-138,1264,100,100,self.fgravi,-90,"data/bk_imgforce_gravitybox1.png"],self))#gravitybox1#-138#1264#
+self.forces.append(obj_forcegravityinbox([220,1265,100,100,self.fgravi,  0,"data/bk_imgforce_gravitybox2.png"],self))#gravitybox2#220#1265#
+self.forces.append(obj_forcegravityinbox([580,1262,100,100,self.fgravi, 90,"data/bk_imgforce_gravitybox3.png"],self))#gravitybox3#580#1262#
+self.forces.append(obj_forcegravityinbox([923,1261,100,100,self.fgravi,180,"data/bk_imgforce_gravitybox4.png"],self))#gravitybox4#923#1261#
+self.forces.append(obj_forcegravityincircle([1262,1263,100,self.fgravi,-90,"data/bk_imgforce_gravity1.png"],self))#gravity1#1262#1263#
+self.forces.append(obj_forcegravityincircle([1568,1266,100,self.fgravi,  0,"data/bk_imgforce_gravity2.png"],self))#gravity2#1568#1266#
+self.forces.append(obj_forcegravityincircle([1908,1265,100,self.fgravi, 90,"data/bk_imgforce_gravity3.png"],self))#gravity3#1908#1265#
+self.forces.append(obj_forcegravityincircle([2233,1268,100,self.fgravi,180,"data/bk_imgforce_gravity4.png"],self))#gravity4#2233#1268#
+self.forces.append(obj_forcegravityinbox([-799,1119,400,50,self.fgravi,-90,"data/bk_imgforce_gravityboxsmall1w8.png"],self))#gravitybox1sw8#-799#1119#
+self.forces.append(obj_forcegravityinbox([-803,995,400,50,self.fgravi, 90,"data/bk_imgforce_gravityboxsmall3w8.png"],self))#gravitybox3sw8#-803#995#
+self.forces.append(obj_forcecoriolisincircle([2156,-361,200,self.fcorio,"data/bk_imgforce_coriolisbiga.png"],self))#coriolisbig1a#2156#-361#
+self.forces.append(obj_forcecoriolisinbox([1990,93,100,100,-self.fcorio,"data/bk_imgforce_coriolisbox.png"],self))#coriolisbox1#1990#93#
+self.forces.append(obj_forcecoriolisinbox([2324,96,100,100,self.fcorio,"data/bk_imgforce_coriolisboxa.png"],self))#coriolisbox1a#2324#96#
+self.forces.append(obj_forcecoriolisincircle([1726,101,100,self.fcorio,"data/bk_imgforce_coriolisa.png"],self))#coriolis1a#1726#101#
+self.forces.append(obj_forcecoriolisincircle([1401,106,100,-self.fcorio,"data/bk_imgforce_coriolis.png"],self))#coriolis1#1401#106#
+self.forces.append(obj_forcegyreincircle([-933,-359,200,self.fgyre,self.fgyrec,"data/bk_imgforce_gyrebig.png"],self))#gyre2#-933#-359#
+self.forces.append(obj_forcegyreincircle([-346,-359,200,-self.fgyre,self.fgyrec,"data/bk_imgforce_gyrebiganti.png"],self))#gyre2a#-346#-359#
+self.forces.append(obj_forcegyreincircle([-949,71,100,self.fgyre,self.fgyrec,"data/bk_imgforce_gyre.png"],self))#gyre1#-949#71#
+self.forces.append(obj_forcegyreincircle([-456,80,100,-self.fgyre,self.fgyrec,"data/bk_imgforce_gyreanti.png"],self))#gyre1a#-456#80#
+self.forces.append(obj_forceviscosityincircle([self.fvisco,962,717,100,"data/bk_imgforce_spillbig.png"],self))#spill3#962#717#
+self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,1601,721,100,"data/bk_imgforce_icespillbig.png"],self))#icespill3#1601#721#
+self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,1477,878,100,"data/bk_imgforce_icespillbig.png"],self))#icespill3#1477#878#
+self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,1442,596,100,"data/bk_imgforce_icespillbig.png"],self))#icespill3#1442#596#
+self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,1381,728,50,"data/bk_imgforce_icespillmed.png"],self))#icespill2#1381#728#
+self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,1325,832,50,"data/bk_imgforce_icespillmed.png"],self))#icespill2#1325#832#
+self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,1631,879,50,"data/bk_imgforce_icespillmed.png"],self))#icespill2#1631#879#
+self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,1614,568,50,"data/bk_imgforce_icespillmed.png"],self))#icespill2#1614#568#
+self.forces.append(obj_forcespringincircle([-674,683,200,self.fspring,"data/bk_imgforce_springbig.png"],self))#spring2#-674#683#
+self.forces.append(obj_forcespringincircle([-232,422,200,-self.fspring,"data/bk_imgforce_springbigpush.png"],self))#spring2push#-232#422#
+self.forces.append(obj_forcespringincircle([128,464,100,-self.fspring,"data/bk_imgforce_springpush.png"],self))#spring1push#128#464#
+self.forces.append(obj_forcespringinbox([-115,809,100,100,0,-self.fspring,"data/bk_imgforce_springboxpush.png"],self))#springb1push#-115#809#
+self.forces.append(obj_forcespringinboxnomass([641,-683,600,100,0,-self.fspring,"data/bk_imgforce_springboxpush_w6.png"],self))#springb1push_w6#641#-683#
+self.forces.append(obj_forcecoriolisincircle([1531,-364,200,-self.fcorio,"data/bk_imgforce_coriolisbig.png"],self))#coriolisbig1#1531#-364#
+self.forces.append(obj_forceresetinbox([528,-184,100,100],self))#resetbox1#528#-184#
+self.forces.append(obj_forceresetinbox([313,-184,100,100],self))#resetbox1#313#-184#
+self.decos.append(obj_deco(190,-163,25,75,"data/bk_imgdeco_seaweed2.png",self))#seaweed2#190#-163#
+self.decos.append(obj_deco(651,-166,25,75,"data/bk_imgdeco_seaweed2.png",self))#seaweed2#651#-166#
+self.decos.append(obj_deco(516,-312,100,50,"data/bk_imgdeco_cloud2a.png",self))#decocloud2a#516#-312#
+self.decos.append(obj_deco(302,-316,100,50,"data/bk_imgdeco_cloud2a.png",self))#decocloud2a#302#-316#
+self.decos.append(obj_deco(289,-63,100,50,"data/bk_imgdeco_cloud2a.png",self))#decocloud2a#289#-63#
+self.decos.append(obj_deco(512,-58,100,50,"data/bk_imgdeco_cloud2a.png",self))#decocloud2a#512#-58#
+self.forces.append(obj_forcespringinbox([-968,410,100,100,0,self.fspring,"data/bk_imgforce_springbox.png"],self))#springb1#-968#410#
+self.forces.append(obj_forcespringincircle([-1058,728,100,self.fspring,"data/bk_imgforce_spring.png"],self))#spring1#-1058#728#

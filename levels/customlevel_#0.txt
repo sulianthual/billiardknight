@@ -1,0 +1,52 @@
+  #param_playershotind# #0#
+self.maxshoot=200#param_maxshoot#200#0#
+self.reloadtime=25#param_reloadtime#25#0#
+self.shootspeedmult=1#param_shootspeedmult#1#0#
+self.usechargeshot=True#param_usechargeshot#True#0#
+self.chargeshotspeed=1.05#param_chargeshotspeed#1.05#0#
+self.usetuneshot=False#param_usetuneshot#False#0#
+self.usemagicshot=True#param_usemagicshot#True#0#
+self.magicshotmaxdist=300#param_magicshotmaxdist#300#0#
+self.magicshotmaxtime=False#param_magicshotmaxtime#False#0#
+self.magicshotminspeed=False#param_magicshotminspeed#False#0#
+self.magicshotendspeedmult=1#param_magicshotendspeedmult#1#0#
+self.magicshotcdmult=1#param_magicshotcdmult#1#0#
+  #param_playerabiind# #0#
+self.useslowdown=True#param_useslowdown#True#0#
+self.slowdownrate=0.8#param_slowdownrate#0.8#0#
+self.useslowdowntime=False#param_useslowdowntime#False#0#
+self.slowdowntimerate=0.1#param_slowdowntimerate#0.1#0#
+self.usedebugreplace=True#param_usedebugreplace#True#0#
+self.shootinwater=True#param_shootinwater#True#0#
+self.aimingslowstime=False#param_aimingslowstime#False#0#
+self.aimingslowstimerate=0.1#param_aimingslowstimerate#0.1#0#
+  #param_physicsind# #0#
+self.cd0=0.05#param_cd0#0.05#0#
+self.m0=1#param_m0#1#0#
+self.m0player=1#param_m0player#1#0#
+  #param_forcesind# #0#
+self.fgravi=2#param_fgravi#2#0#
+self.fvisco=0.3#param_fvisco#0.3#0#
+self.fvisco_ice=0.01#param_fvisco_ice#0.01#0#
+self.fgyre=0.03#param_fgyre#0.03#0#
+self.fgyrec=0.5#param_fgyrec#0.5#0#
+self.fcorio=0.1#param_fcorio#0.1#0#
+self.fspring=0.03#param_fspring#0.03#0#
+  #param_collisionsind# #0#
+self.cor_mc=1#param_cor_mc#1#0#
+self.cort_mc=1#param_cort_mc#1#0#
+self.cor_bdry=0.7#param_cor_bdry#0.7#0#
+self.cort_bdry=0.85#param_cort_bdry#0.85#0#
+self.cor=0.7#param_cor#0.7#0#
+self.cort=0.85#param_cort#0.85#0#
+self.cor_sp=0.01#param_cor_sp#0.01#0#
+self.cort_sp=0.1#param_cort_sp#0.1#0#
+self.cor_pk=2#param_cor_pk#2#0#
+self.cort_pk=0#param_cort_pk#0#0#
+self.background=obj_background("background0",self)#background0#0#0#
+self.borders=obj_borders("borders1",self)#borders1#0#0#
+self.boundaries=obj_boundaries(25,775,25,575,25,(189, 107, 0),"bdry_1",self)#bdry_1#0#0#
+self.music="64 Cast List.mp3"#music_castl#0#0#
+if domusic and self.creator.music != self.music: self.creator.changemusic(self.music)#musicchange#0#0#
+self.player=obj_player(200,300,self)#player#200#300#
+self.enemies.append(obj_enemy1(600,300,self))#enemy1#600#300#

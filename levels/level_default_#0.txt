@@ -1,0 +1,11 @@
+self.hitsleft=999#shotsleft#999#0#
+self.background=obj_background("data/bk_imglevel_background9.png",self)#background9#0#0#
+self.borders=obj_borders("data/bk_imglevel_border1.png",self)#borders1#0#0#
+self.player=obj_player(200,300,self)#player#200#300#
+self.enemies.append(obj_enemy1(600,300,self))#enemy1#600#300#
+self.holes.append(obj_hole(35,35,25,"data/bk_imghole.png",self))#hole#35#35#
+self.holes.append(obj_hole(35,565,25,"data/bk_imghole.png",self))#hole#35#565#
+self.holes.append(obj_hole(765,35,25,"data/bk_imghole.png",self))#hole#765#35#
+self.holes.append(obj_hole(765,565,25,"data/bk_imghole.png",self))#hole#765#565#
+self.holes.append(obj_hole(400,25,25,"data/bk_imghole.png",self))#hole#400#25#
+self.holes.append(obj_hole(400,575,25,"data/bk_imghole.png",self))#hole#400#575#

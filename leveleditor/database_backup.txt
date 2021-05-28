@@ -1,0 +1,645 @@
+####################################################
+# Parameters database (reference values when loading level)
+# cannot edit level elements (e.g. player, enemies) that are loaded afterwards!
+
+# Initiate empty databases
+self.paramdatabase=[]
+self.backgrounddatabase=[]
+self.bordersdatabase=[]
+self.bdrydatabase=[]
+self.musicdatabase=[]
+self.actordatabase=[]
+self.actormarkers=[]# markers for fast scroll
+self.actormarkers.append(0)# first marker
+        
+# Player parameters: 
+self.add_pdb(' '," ",' ','param_playerlevelblank')
+self.add_pdb('CAMERA AND PLAY AREA :'," ",' ','param_levelind')
+self.add_pdb('cameramode (choose between:0=fixed, 1=rect, 2=player, 3=dynamic) =',"self.cameramode=",0,'param_cameramode')
+self.add_pdb('cameradist (distance from edge where mouse starts pulling camera) =',"self.cameradist=",150,'param_cameradist')
+self.add_pdb('doplayarea (process only actors in play area. Huge ressources saver) =',"self.doplayarea=",True,'param_doplayarea')
+self.add_pdb('dplay (play area edges distance from visible screen) =',"self.dplay=",100,'param_dplay')
+self.add_pdb('use_mcircle_collisions (moving circles except player collide with each other. Disable for more resources) =',"self.use_mcircle_collisions=",True,'param_use_mcircle_collisions')
+self.add_pdb('texton      (level starts with text display) =',"self.texton=",True,'param_texton')
+self.add_pdb(' '," ",' ','param_blank')
+
+self.add_pdb('PLAYER SHOT :'," ",' ','param_playershotind')
+self.add_pdb('maxshoot      (strength for all shots) =',"self.maxshoot=",500,'param_maxshoot')
+self.add_pdb('usechargeshot      (use charge shot, hold LMouse to charge, release to shoot) =',"self.usechargeshot=",True,'param_usechargeshot')
+self.add_pdb('useautochargeshot      (auto charge shot, hold LMouse to shoot) =',"self.useautochargeshot=",False,'param_useautochargeshot')
+self.add_pdb('usehovershot      (use hover shot) =',"self.usehovershot=",False,'param_usehovershot')
+self.add_pdb('usewarpshot      (use warp shot) =',"self.usewarpshot=",False,'param_usewarpshot')
+self.add_pdb('useslowmoshot    (use slow motion shot) =',"self.useslowmoshot=",False,'param_useslowmoshot')
+self.add_pdb('use4dirshot      (use 4dir shot) =',"self.use4dirshot=",False,'param_use4dirshot')
+self.add_pdb('useshotswimsound      (swim sound when shooting) =',"self.useshotswimsound=",False,'param_useshotswimsound')
+self.add_pdb('useshotjumpsound      (jump sound when shooting) =',"self.useshotjumpsound=",False,'param_useshotjumpsound')
+self.add_pdb(' '," ",' ','param_blank')
+
+self.add_pdb('cooldown      (cooldown for all shots) =',"self.cooldown=",25,'param_cooldown')
+self.add_pdb('shootspeedmult        (speed mult when starts shooting for all shots) =',"self.shootspeedmult=",0,'param_shootspeedmult')
+self.add_pdb('cshootmax      (upper bound of shot strength mult when charging 0< <=1) =',"self.cshootmax=",1,'param_cshootmax')
+self.add_pdb('cshootmin      (lower bound of shot strength mult when charging 0< <=1) =',"self.cshootmin=",1/4,'param_cshootmin')
+self.add_pdb('chargeshotspeed        (charge shot increment each frame for charge guns) =',"self.chargeshotspeed=",1.05,'param_chargeshotspeed')
+self.add_pdb('autochargeshotspeed        (charge shot increment each frame for autocharge guns) =',"self.autochargeshotspeed=",1.05,'param_autochargeshotspeed')
+self.add_pdb('hovertime     (hover shot hover time - when fully charged) =',"self.hovertime=",10,'param_hovertime')
+self.add_pdb('hovercd          (drag during hover) =',"self.hovercd=",0.01,'param_hovercd')
+self.add_pdb('hoverendspeedmult     (speed mult when hover ends, =0 stops player) =',"self.hoverendspeedmult=",0,'param_hoverendspeedmult')
+self.add_pdb('usemousestop (player stalls during shot if hits mouse pointer dot) =',"self.usemousestop=", False,'param_usemousestop')
+self.add_pdb('mousestopmult (speed mult for mousestop) =',"self.mousestopmult=", 0,'param_mousestopmult')
+self.add_pdb(' '," ",' ','param_blank')
+
+self.add_pdb('ABILITIES :'," ",' ','param_playerabiind')
+self.add_pdb('useslowdown (slow player with RMouse) =',"self.useslowdown=", True,'param_useslowdown')
+self.add_pdb('slowdownrate (slow player drag multiplier) =',"self.slowdownrate=", 30,'param_slowdownrate')
+self.add_pdb('usemovewithkeys (move players with keys WASD or arrows) =',"self.usemovewithkeys=", False,'param_usemovewithkeys')
+self.add_pdb('movewithkeysampl (move players with keys rate) =',"self.movewithkeysampl=", 3,'param_movewithkeysampl')
+self.add_pdb('movewithkeysendspeedmult (speed mult when key press ends,=0 to stop) =',"self.movewithkeysendspeedmult=", 0.5,'param_movewithkeysendspeedmult')
+self.add_pdb('usedebugreplace (place player anywhere with MMouse: for cheating!) =',"self.usedebugreplace=", False,'param_usedebugreplace')
+self.add_pdb('useslowdowntime (slow time with RMouse) =',"self.useslowdowntime=", False,'param_useslowdowntime')
+self.add_pdb('slowdowntimerate (slow time speed mult) =',"self.slowdowntimerate=", 0.1,'param_slowdowntimerate')
+
+# Physics (Collisions)
+self.add_pdb(' '," ",' ','param_collisionsblank')
+self.add_pdb('COLLISIONS :'," ",' ','param_collisionsind')
+self.add_pdb('cor_mc     (coeff of restitution for collisions between moving circles) =',"self.cor_mc=",1,'param_cor_mc')
+self.add_pdb('cort_mc    (coeff of restitution for tangent component) =',"self.cort_mc=",1,'param_cort_mc')
+self.add_pdb('cor_bdry     (cor for collisions between moving circles and boundaries) =',"self.cor_bdry=",0.7,'param_cor_bdry')
+self.add_pdb('cort_bdry    (cort tangent component) =',"self.cort_bdry=",0.85,'param_cort_bdry')
+self.add_pdb('cor     (cor for collisions with moving circles regular obstacles) =',"self.cor=",0.7,'param_cor')
+self.add_pdb('cort    (cor tangent component) =',"self.cort=",0.85,'param_cort')
+self.add_pdb('cor_sp     (cor for collisions with moving circles spongy obstacles) =',"self.cor_sp=",0.01,'param_cor_sp')
+self.add_pdb('cort_sp    (cor tangent component) =',"self.cort_sp=",0.1,'param_cort_sp')
+self.add_pdb('cor_pk     (cor for collisions with moving circles bumper obstacles) =',"self.cor_pk=",1.2,'param_cor_pk')
+self.add_pdb('cort_pk    (cor tangent component) =',"self.cort_pk=",1,'param_cort_pk')
+
+# Physics (actors values)
+self.add_pdb(' '," ",' ','param_blank')
+self.add_pdb('MASS AND DRAG:'," ",' ','param_physicsind')
+self.add_pdb('cd0     (ref drag all moving actors) =',"self.cd0=",0.01,'param_cd0')
+self.add_pdb('m0      (ref mass multiplier all moving actors) =',"self.m0=",1,'param_m0')
+self.add_pdb('m0player      (additional mass multiplier player only) =',"self.m0player=",1,'param_m0player')
+
+# Physics (Forces)
+self.add_pdb(' '," ",' ','param_forcesblank')
+self.add_pdb('FORCES :'," ",' ','param_forcesind')
+self.add_pdb('fgravi    (ref value for gravity forces) =',"self.fgravi=",1.5,'param_fgravi')# reference gravity value for all forces that use it
+self.add_pdb('fvisco    (ref value viscosity (mult of current drag) on spills) =',"self.fvisco=",30,'param_fvisco')# reference viscosity value for all forces that use it
+self.add_pdb('fvisco_ice    (ref viscosity forces (mult of current drag) on ice) =',"self.fvisco_ice=",0,'param_fvisco_ice')# reference ice viscosity value for all forces that use it
+self.add_pdb('fgyre    (ref value for gyre forces, rotational part) =',"self.fgyre=",0.03,'param_fgyre')# reference gyre value for all forces that use it
+self.add_pdb('fgyrec    (ref value for gyre forces, attraction to center part) =',"self.fgyrec=",0.5,'param_fgyrec')# reference gyrec value for all forces that use it
+self.add_pdb('fcorio    (ref value for coriolis forces) =',"self.fcorio=",0.1,'param_fcorio')# reference coriolis value for all forces that use it
+self.add_pdb('fspring    (ref value for spring forces) =',"self.fspring=",0.5,'param_fspring')# reference spring value for all forces that use it
+
+####################################################
+# Backgrounds database (reference and barcode)       
+
+self.add_bdb('background0','background0')# imagename and barcode
+self.add_bdb('background1','background1')
+self.add_bdb('background2','background2')
+self.add_bdb('background3','background3')
+self.add_bdb('background4','background4')
+self.add_bdb('background5','background5')
+self.add_bdb('background6','background6')
+self.add_bdb('background7','background7')
+self.add_bdb('background8','background8')
+self.add_bdb('background9','background9')
+self.add_bdb('background10','background10')
+self.add_bdb('background11','background11')
+#
+#
+####################################################
+# Borders database (reference and barcode: load BEFORE boundaries that take its color)       
+
+self.add_bodb('borders0','borders0')# imagename and barcode
+self.add_bodb('borders1','borders1')
+self.add_bodb('borders2','borders2')
+self.add_bodb('borders3','borders3')
+self.add_bodb('borders4','borders4')
+self.add_bodb('borders5','borders5')
+self.add_bodb('borders6','borders6')
+self.add_bodb('borders7','borders7')
+self.add_bodb('borders8','borders8')
+self.add_bodb('borders9','borders9')
+self.add_bodb('borders10','borders10')
+self.add_bodb('borders11','borders11')
+#
+
+####################################################
+# Boundaries database (barcode)       
+# (note: proposed boundary color is disregarded for the one set by borders)
+
+self.add_bdrydb(40,screenw-40,40,screenh-40,40,(255,255,255),"bdry_0")
+self.add_bdrydb(-screenw+40,2*screenw-40,-screenh+40,2*screenh-40,40,(255,255,255),"bdry_0w3h3c")
+self.add_bdrydb(-2*screenw+40,3*screenw-40,-2*screenh+40,3*screenh-40,40,(255,255,255),"bdry_0w5h5c")
+
+
+self.add_bdrydb(40,2*screenw-40,40,screenh-40,40,(255,255,255),"bdry_0w2")
+self.add_bdrydb(40,4*screenw-40,40,screenh-40,40,(255,255,255),"bdry_0w4")
+self.add_bdrydb(40,6*screenw-40,40,screenh-40,40,(255,255,255),"bdry_0w6")
+self.add_bdrydb(40,8*screenw-40,40,screenh-40,40,(255,255,255),"bdry_0w8")
+
+self.add_bdrydb(40,screenw-40,40,2*screenh-40,40,(255,255,255),"bdry_0h2")
+self.add_bdrydb(40,screenw-40,40,4*screenh-40,40,(255,255,255),"bdry_0h4")
+self.add_bdrydb(40,screenw-40,40,6*screenh-40,40,(255,255,255),"bdry_0h6")
+self.add_bdrydb(40,screenw-40,40,8*screenh-40,40,(255,255,255),"bdry_0h8")
+
+self.add_bdrydb(40,screenw-40,-screenh+40,screenh-40,40,(255,255,255),"bdry_0h2o")
+self.add_bdrydb(40,screenw-40,-3*screenh+40,screenh-40,40,(255,255,255),"bdry_0h4o")
+self.add_bdrydb(40,screenw-40,-5*screenh+40,screenh-40,40,(255,255,255),"bdry_0h6o")
+self.add_bdrydb(40,screenw-40,-7*screenh+40,screenh-40,40,(255,255,255),"bdry_0h8o")
+
+self.add_bdrydb(40,2*screenw-40,40,2*screenh-40,40,(255,255,255),"bdry_0w2h2")
+self.add_bdrydb(40,4*screenw-40,40,4*screenh-40,40,(255,255,255),"bdry_0w4h4")
+self.add_bdrydb(40,6*screenw-40,40,6*screenh-40,40,(255,255,255),"bdry_0w6h6")
+self.add_bdrydb(40,8*screenw-40,40,8*screenh-40,40,(255,255,255),"bdry_0w8h8")
+
+self.add_bdrydb(40,2*screenw-40,40,4*screenh-40,40,(255,255,255),"bdry_0w2h4")
+self.add_bdrydb(40,2*screenw-40,40,6*screenh-40,40,(255,255,255),"bdry_0w2h6")
+self.add_bdrydb(40,2*screenw-40,40,8*screenh-40,40,(255,255,255),"bdry_0w2h8")
+
+self.add_bdrydb(40,4*screenw-40,40,2*screenh-40,40,(255,255,255),"bdry_0w4h2")
+self.add_bdrydb(40,6*screenw-40,40,2*screenh-40,40,(255,255,255),"bdry_0w6h2")
+self.add_bdrydb(40,8*screenw-40,40,2*screenh-40,40,(255,255,255),"bdry_0w8h2")
+#
+
+
+
+####################################################
+# Music database   
+
+self.add_mdb('none','nomusic')
+self.add_mdb('chill1','music_chill1')
+self.add_mdb('chill2','music_chill2')
+self.add_mdb('chill3','music_chill3')
+self.add_mdb('chill4','music_chill4')
+self.add_mdb('fast1','music_fast1')
+self.add_mdb('fast2','music_fast2')
+self.add_mdb('fast3','music_fast3')
+self.add_mdb('fast4','music_fast4')
+self.add_mdb('atm1','music_atm1')
+self.add_mdb('atm2','music_atm2')
+self.add_mdb('atm3','music_atm3')
+self.add_mdb('atm4','music_atm4')
+self.add_mdb('atm5','music_atm5')
+self.add_mdb('dark1','music_dark1')
+self.add_mdb('dark2','music_dark2')
+self.add_mdb('dark3','music_dark3')
+self.add_mdb('dark4','music_dark4')
+self.add_mdb('dark5','music_dark5')
+self.add_mdb('mario','mario')
+#
+####################################################
+# Level actors database
+# Each actor has data: image,radx,rady,command,barcode
+# when placed an actor writes a python command in the level text file to be executed at level load 
+# other data is for handling by level editor: barcode to identify, image name and position for display
+# The actor command has text to be replaced using the forming format: 
+# - INX, INY -> x,y position where to put the actor.
+# - IDV -> value to be replaced
+
+#
+# player, camera and holes
+self.add_adb('data/bk_imgplayer_bodyhead.png',25,25,'self.player=obj_player(INX,INY,self)','player')
+self.add_adb('data/bk_imgcamera.png',25,25,'for i,j in zip([changexcam,changeycam],[INX-screenw/2,screenh/2-INY]): i(j)','camera')
+
+self.add_adb('data/bk_imgholefinish.png',25,25,'self.holesfinish.append(obj_holefinish(INX,INY,25,"data/bk_imgholefinish.png",self))','holefinish')
+self.add_adb('data/bk_imgholelever.png',25,25,'self.holeslever.append(obj_holelever(INX,INY,25,"data/bk_imgholelever.png",self))','holelever')
+self.add_adb('data/bk_imghole.png',25,25,'self.holes.append(obj_hole(INX,INY,25,"data/bk_imghole.png",self))','hole')
+self.add_adb('data/bk_imgholebig.png',50,50,'self.holes.append(obj_holebig(INX,INY,50,"data/bk_imgholebig.png",self))','holebig')
+self.add_adb('data/bk_imgholesmall.png',15,15,'self.holes.append(obj_holesmall(INX,INY,15,"data/bk_imgholesmall.png",self))','holesmall')
+self.add_adb('data/bk_imghole_blood_icon.png',50,50,'self.holes.append(obj_holebloody(INX,INY,25,"data/bk_imghole.png",self))','holeblood')
+self.add_adb('data/bk_imgholebig_blood_icon.png',100,100,'self.holes.append(obj_holebigbloody(INX,INY,50,"data/bk_imgholebig.png",self))','holebigblood')
+self.add_adb('data/bk_imgholesmall_blood_icon.png',30,30,'self.holes.append(obj_holesmallbloody(INX,INY,15,"data/bk_imgholesmall.png",self))','holesmallblood')
+
+# enemies
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgenemy1_bodyhead.png',25,25,'self.enemies.append(obj_enemy1(INX,INY,self))','enemy1')
+self.add_adb('data/bk_imgenemy2_bodyhead.png',50,50,'self.enemies.append(obj_enemy2(INX,INY,self))','enemy2')
+self.add_adb('data/bk_imgenemy3_bodyhead.png',15,15,'self.enemies.append(obj_enemy3(INX,INY,self))','enemy3')
+self.add_adb('data/bk_imgenemy1_bodyheadwater.png',25,25,'self.enemies.append(obj_enemy1water(INX,INY,self))','enemy1w')
+self.add_adb('data/bk_imgenemy1fly_bodyhead.png',50,25,'self.enemies.append(obj_enemy1fly(INX,INY,self))','enemy1fly')
+self.add_adb('data/bk_imgenemy1small_bodyhead.png',15,15,'self.enemies.append(obj_enemy1small(INX,INY,self))','enemy1s')
+self.add_adb('data/bk_imgenemy2small_bodyhead.png',30,30,'self.enemies.append(obj_enemy2small(INX,INY,self))','enemy2s')
+self.add_adb('data/bk_imgenemy3small_bodyhead.png',9,9,'self.enemies.append(obj_enemy3small(INX,INY,self))','enemy3s')
+self.add_adb('data/bk_imgplayersmall_bodyhead.png',15,15,'self.player=obj_playersmall(INX,INY,self)','playersmall')
+
+#
+# moving obstacles (rocks...)
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgops_movingcircle1.png',25,25,'self.obstacles.append(obj_movingcircle([INX,INY,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle1.png"],self))','mcircle1')
+self.add_adb('data/bk_imgops_movingcircle1a.png',25,25,'self.obstacles.append(obj_movingcircle([INX,INY,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle1a.png"],self))','mcircle1a')
+self.add_adb('data/bk_imgops_movingcircle1b.png',25,25,'self.obstacles.append(obj_movingcircle([INX,INY,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle1b.png"],self))','mcircle1b')
+self.add_adb('data/bk_imgops_movingcircle4.png',35,35,'self.obstacles.append(obj_movingcircle([INX,INY,35,27,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle4.png"],self))','mcircle4')
+self.add_adb('data/bk_imgops_movingcircle4a.png',35,35,'self.obstacles.append(obj_movingcircle([INX,INY,35,27,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle4a.png"],self))','mcircle4a')
+self.add_adb('data/bk_imgops_movingcircle4b.png',35,35,'self.obstacles.append(obj_movingcircle([INX,INY,35,27,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle4b.png"],self))','mcircle4b')
+self.add_adb('data/bk_imgops_movingcircle2.png',50,50,'self.obstacles.append(obj_movingcircle([INX,INY,50,80,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2.png"],self))','mcircle2')
+self.add_adb('data/bk_imgops_movingcircle2a.png',50,50,'self.obstacles.append(obj_movingcircle([INX,INY,50,80,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2a.png"],self))','mcircle2a')
+self.add_adb('data/bk_imgops_movingcircle2b.png',50,50,'self.obstacles.append(obj_movingcircle([INX,INY,50,80,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2b.png"],self))','mcircle2b')
+self.add_adb('data/bk_imgops_movingcircle5.png',70,70,'self.obstacles.append(obj_movingcircle([INX,INY,70,220,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle5.png"],self))','mcircle5')
+self.add_adb('data/bk_imgops_movingcircle5a.png',70,70,'self.obstacles.append(obj_movingcircle([INX,INY,70,220,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle5a.png"],self))','mcircle5a')
+self.add_adb('data/bk_imgops_movingcircle5b.png',70,70,'self.obstacles.append(obj_movingcircle([INX,INY,70,220,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle5b.png"],self))','mcircle5b')
+self.add_adb('data/bk_imgops_movingcircle3.png',100,100,'self.obstacles.append(obj_movingcircle([INX,INY,100,640,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle3.png"],self))','mcircle3')
+self.add_adb('data/bk_imgops_movingcircle3a.png',100,100,'self.obstacles.append(obj_movingcircle([INX,INY,100,640,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle3a.png"],self))','mcircle3a')
+self.add_adb('data/bk_imgops_movingcircle3b.png',100,100,'self.obstacles.append(obj_movingcircle([INX,INY,100,640,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle3b.png"],self))','mcircle3b')
+
+# moving circle box
+self.add_adb('data/bk_imgops_movingcircle4dir.png',25,25,'self.obstacles.append(obj_movingcircle4dir([INX,INY,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle4dir.png"],self))','mcircle4dir')
+self.add_adb('data/bk_imgops_movingcircle2dirx.png',25,25,'self.obstacles.append(obj_movingcircle2dirx([INX,INY,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2dirx.png"],self))','mcircle2dirx')
+self.add_adb('data/bk_imgops_movingcircle2diry.png',25,25,'self.obstacles.append(obj_movingcircle2diry([INX,INY,25,10,1,self.cor_mc,self.cort_mc,"data/bk_imgops_movingcircle2diry.png"],self))','mcircle2diry')
+
+# circles
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgobstacle_roundobstaclesmall.png',25,25,'self.obstacles.append(obj_roundobstacle(INX,INY,25,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclesmall.png",self))','circle1')
+self.add_adb('data/bk_imgobstacle_roundobstaclesms.png',35,35,'self.obstacles.append(obj_roundobstacle(INX,INY,35,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclesms.png",self))','circle12')
+self.add_adb('data/bk_imgobstacle_roundobstaclemed.png',50,50,'self.obstacles.append(obj_roundobstacle(INX,INY,50,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclemed.png",self))','circle2')
+self.add_adb('data/bk_imgobstacle_roundobstaclemb.png',70,70,'self.obstacles.append(obj_roundobstacle(INX,INY,70,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclemb.png",self))','circle23')
+self.add_adb('data/bk_imgobstacle_roundobstaclebig.png',100,100,'self.obstacles.append(obj_roundobstacle(INX,INY,100,self.cor,self.cort,"data/bk_imgobstacle_roundobstaclebig.png",self))','circle3')
+# circles spongy
+self.add_adb('data/bk_imgobstacle_roundobstaclesmallsp.png',25,25,'self.obstacles.append(obj_roundobstacle(INX,INY,25,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclesmallsp.png",self))','circle1sp')
+self.add_adb('data/bk_imgobstacle_roundobstaclesms_sp.png',35,35,'self.obstacles.append(obj_roundobstacle(INX,INY,35,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclesms_sp.png",self))','circle12sp')
+self.add_adb('data/bk_imgobstacle_roundobstaclemedsp.png',50,50,'self.obstacles.append(obj_roundobstacle(INX,INY,50,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclemedsp.png",self))','circle2sp')
+self.add_adb('data/bk_imgobstacle_roundobstaclemb_sp.png',70,70,'self.obstacles.append(obj_roundobstacle(INX,INY,70,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclemb_sp.png",self))','circle23sp')
+self.add_adb('data/bk_imgobstacle_roundobstaclebigsp.png',100,100,'self.obstacles.append(obj_roundobstacle(INX,INY,100,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_roundobstaclebigsp.png",self))','circle3sp')
+# circles pachinko (bumbers)
+self.add_adb('data/bk_imgobstacle_roundobstaclesmallpk.png',25,25,'self.obstacles.append(obj_roundobstacle(INX,INY,25,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_roundobstaclesmallpk.png",self))','circle1pk')
+self.add_adb('data/bk_imgobstacle_roundobstaclesms_pk.png',35,35,'self.obstacles.append(obj_roundobstacle(INX,INY,35,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_roundobstaclesms_pk.png",self))','circle12pk')
+self.add_adb('data/bk_imgobstacle_roundobstaclemedpk.png',50,50,'self.obstacles.append(obj_roundobstacle(INX,INY,50,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_roundobstaclemedpk.png",self))','circle2pk')
+self.add_adb('data/bk_imgobstacle_roundobstaclemb_pk.png',70,70,'self.obstacles.append(obj_roundobstacle(INX,INY,70,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_roundobstaclemb_pk.png",self))','circle23pk')
+self.add_adb('data/bk_imgobstacle_roundobstaclebigpk.png',100,100,'self.obstacles.append(obj_roundobstacle(INX,INY,100,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_roundobstaclebigpk.png",self))','circle3pk')
+# circle planets
+self.add_adb('data/bk_imgforce_planet1small.png',25,25,'self.obstacles.append(obj_roundobstacle(INX,INY,25,0,1,"data/bk_imgforce_planet1small.png",self))','planet1s')
+self.add_adb('data/bk_imgforce_planet1.png',50,50,'self.obstacles.append(obj_roundobstacle(INX,INY,50,0,1,"data/bk_imgforce_planet1.png",self))','planet1')
+
+# boxes
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall.png',25,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall.png",self))','box1')    
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall2w.png',50,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall2w.png",self))','box1w')  
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall4w.png',100,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall4w.png",self))','box1ww')      
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall8w.png',200,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,200,25,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall8w.png",self))','box1www')  
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall2h.png',25,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,50,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall2h.png",self))','box1h') 
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall4h.png',25,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,100,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall4h.png",self))','box1hh') 
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall8h.png',25,200,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,200,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxsmall8h.png",self))','box1hhh') 
+self.add_adb('data/bk_imgobstacle_rectangularboxmed.png',50,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,50,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxmed.png",self))','box2')    
+self.add_adb('data/bk_imgobstacle_rectangularboxmed2w.png',100,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,50,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxmed2w.png",self))','box2w')  
+self.add_adb('data/bk_imgobstacle_rectangularboxmed4w.png',200,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,200,50,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxmed4w.png",self))','box2ww') 
+self.add_adb('data/bk_imgobstacle_rectangularboxmed2h.png',50,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,100,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxmed2h.png",self))','box2h')      
+self.add_adb('data/bk_imgobstacle_rectangularboxmed4h.png',50,200,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,200,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxmed4h.png",self))','box2hh')  
+self.add_adb('data/bk_imgobstacle_rectangularboxbig.png',100,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,100,self.cor,self.cort,"data/bk_imgobstacle_rectangularboxbig.png",self))','box3')
+# boxes spongy
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgobstacle_rectangularboxsmallsp.png',25,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,25,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxsmallsp.png",self))','box1sp')    
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall2wsp.png',50,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,25,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxsmall2wsp.png",self))','box1wsp')  
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall4wsp.png',100,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,25,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxsmall4wsp.png",self))','box1wwsp')      
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall8wsp.png',200,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,200,25,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxsmall8wsp.png",self))','box1wwwsp')  
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall2hsp.png',25,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,50,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxsmall2hsp.png",self))','box1hsp') 
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall4hsp.png',25,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,100,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxsmall4hsp.png",self))','box1hhsp') 
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall8hsp.png',25,200,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,200,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxsmall8hsp.png",self))','box1hhhsp') 
+self.add_adb('data/bk_imgobstacle_rectangularboxmedsp.png',50,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,50,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxmedsp.png",self))','box2sp')    
+self.add_adb('data/bk_imgobstacle_rectangularboxmed2wsp.png',100,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,50,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxmed2wsp.png",self))','box2wsp')  
+self.add_adb('data/bk_imgobstacle_rectangularboxmed4wsp.png',200,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,200,50,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxmed4wsp.png",self))','box2wwsp') 
+self.add_adb('data/bk_imgobstacle_rectangularboxmed2hsp.png',50,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,100,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxmed2hsp.png",self))','box2hsp')      
+self.add_adb('data/bk_imgobstacle_rectangularboxmed4hsp.png',50,200,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,200,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxmed4hsp.png",self))','box2hhsp')  
+self.add_adb('data/bk_imgobstacle_rectangularboxbigsp.png',100,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,100,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxbigsp.png",self))','box3sp')
+# boxes pachinko
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgobstacle_rectangularboxsmallpk.png',25,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,25,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_rectangularboxsmallpk.png",self))','box1pk')    
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall2wpk.png',50,25,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,25,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_rectangularboxsmall2wpk.png",self))','box1wpk')  
+self.add_adb('data/bk_imgobstacle_rectangularboxsmall2hpk.png',25,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,25,50,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_rectangularboxsmall2hpk.png",self))','box1hpk') 
+self.add_adb('data/bk_imgobstacle_rectangularboxmedpk.png',50,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,50,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_rectangularboxmedpk.png",self))','box2pk')    
+self.add_adb('data/bk_imgobstacle_rectangularboxmed2wpk.png',100,50,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,50,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_rectangularboxmed2wpk.png",self))','box2wpk')  
+self.add_adb('data/bk_imgobstacle_rectangularboxmed2hpk.png',50,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,50,100,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_rectangularboxmed2hpk.png",self))','box2hpk')      
+self.add_adb('data/bk_imgobstacle_rectangularboxbigpk.png',100,100,'self.obstacles.append(obj_rectangularobstacle(INX,INY,100,100,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_rectangularboxbigpk.png",self))','box3pk')
+#
+#Right Triangles
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgobstacle_triangularboxsmall1.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,1,self.cor,self.cort,"data/bk_imgobstacle_triangularboxsmall1.png",self))','triangle11')   
+self.add_adb('data/bk_imgobstacle_triangularboxsmall2.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,2,self.cor,self.cort,"data/bk_imgobstacle_triangularboxsmall2.png",self))','triangle12') 
+self.add_adb('data/bk_imgobstacle_triangularboxsmall3.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,3,self.cor,self.cort,"data/bk_imgobstacle_triangularboxsmall3.png",self))','triangle13') 
+self.add_adb('data/bk_imgobstacle_triangularboxsmall4.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,4,self.cor,self.cort,"data/bk_imgobstacle_triangularboxsmall4.png",self))','triangle14')    
+self.add_adb('data/bk_imgobstacle_triangularboxmed1.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,1,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmed1.png",self))','triangle21')   
+self.add_adb('data/bk_imgobstacle_triangularboxmed2.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,2,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmed2.png",self))','triangle22') 
+self.add_adb('data/bk_imgobstacle_triangularboxmed3.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,3,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmed3.png",self))','triangle23') 
+self.add_adb('data/bk_imgobstacle_triangularboxmed4.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,4,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmed4.png",self))','triangle24')
+self.add_adb('data/bk_imgobstacle_triangularboxbig1.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,1,self.cor,self.cort,"data/bk_imgobstacle_triangularboxbig1.png",self))','triangle31')   
+self.add_adb('data/bk_imgobstacle_triangularboxbig2.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,2,self.cor,self.cort,"data/bk_imgobstacle_triangularboxbig2.png",self))','triangle32') 
+self.add_adb('data/bk_imgobstacle_triangularboxbig3.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,3,self.cor,self.cort,"data/bk_imgobstacle_triangularboxbig3.png",self))','triangle33') 
+self.add_adb('data/bk_imgobstacle_triangularboxbig4.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,4,self.cor,self.cort,"data/bk_imgobstacle_triangularboxbig4.png",self))','triangle34')
+#
+# Right Triangles Elongated
+self.add_adb('data/bk_imgobstacle_triangularboxmedw1.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,1,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedw1.png",self))','triangle2w1')   
+self.add_adb('data/bk_imgobstacle_triangularboxmedw2.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,2,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedw2.png",self))','triangle2w2') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedw3.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,3,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedw3.png",self))','triangle2w3') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedw4.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,4,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedw4.png",self))','triangle2w4')    
+self.add_adb('data/bk_imgobstacle_triangularboxmedh1.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,1,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedh1.png",self))','triangle2h1')   
+self.add_adb('data/bk_imgobstacle_triangularboxmedh2.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,2,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedh2.png",self))','triangle2h2') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedh3.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,3,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedh3.png",self))','triangle2h3') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedh4.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,4,self.cor,self.cort,"data/bk_imgobstacle_triangularboxmedh4.png",self))','triangle2h4')   
+    
+#Right Triangles Spongy
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgobstacle_triangularboxsmall1sp.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,1,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxsmall1sp.png",self))','triangle11sp')   
+self.add_adb('data/bk_imgobstacle_triangularboxsmall2sp.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,2,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxsmall2sp.png",self))','triangle12sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxsmall3sp.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,3,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxsmall3sp.png",self))','triangle13sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxsmall4sp.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,4,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxsmall4sp.png",self))','triangle14sp')    
+self.add_adb('data/bk_imgobstacle_triangularboxmed1sp.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,1,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmed1sp.png",self))','triangle21sp')   
+self.add_adb('data/bk_imgobstacle_triangularboxmed2sp.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,2,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmed2sp.png",self))','triangle22sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxmed3sp.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,3,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmed3sp.png",self))','triangle23sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxmed4sp.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,4,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmed4sp.png",self))','triangle24sp')
+self.add_adb('data/bk_imgobstacle_triangularboxbig1sp.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,1,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxbig1sp.png",self))','triangle31sp')   
+self.add_adb('data/bk_imgobstacle_triangularboxbig2sp.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,2,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxbig2sp.png",self))','triangle32sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxbig3sp.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,3,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxbig3sp.png",self))','triangle33sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxbig4sp.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,4,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxbig4sp.png",self))','triangle34sp')
+#
+# Right Triangles Elongated Spongy
+self.add_adb('data/bk_imgobstacle_triangularboxmedw1sp.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,1,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedw1sp.png",self))','triangle2w1sp')   
+self.add_adb('data/bk_imgobstacle_triangularboxmedw2sp.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,2,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedw2sp.png",self))','triangle2w2sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedw3sp.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,3,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedw3sp.png",self))','triangle2w3sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedw4sp.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,4,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedw4sp.png",self))','triangle2w4sp')    
+self.add_adb('data/bk_imgobstacle_triangularboxmedh1sp.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,1,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedh1sp.png",self))','triangle2h1sp')   
+self.add_adb('data/bk_imgobstacle_triangularboxmedh2sp.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,2,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedh2sp.png",self))','triangle2h2sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedh3sp.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,3,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedh3sp.png",self))','triangle2h3sp') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedh4sp.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,4,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_triangularboxmedh4sp.png",self))','triangle2h4sp') 
+    
+#Right Triangles pachinko
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgobstacle_triangularboxsmall1pk.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,1,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxsmall1pk.png",self))','triangle11pk')   
+self.add_adb('data/bk_imgobstacle_triangularboxsmall2pk.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,2,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxsmall2pk.png",self))','triangle12pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxsmall3pk.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,3,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxsmall3pk.png",self))','triangle13pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxsmall4pk.png',25,25,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,25,25,4,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxsmall4pk.png",self))','triangle14pk')    
+self.add_adb('data/bk_imgobstacle_triangularboxmed1pk.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,1,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmed1pk.png",self))','triangle21pk')   
+self.add_adb('data/bk_imgobstacle_triangularboxmed2pk.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,2,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmed2pk.png",self))','triangle22pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxmed3pk.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,3,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmed3pk.png",self))','triangle23pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxmed4pk.png',50,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,50,4,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmed4pk.png",self))','triangle24pk')
+self.add_adb('data/bk_imgobstacle_triangularboxbig1pk.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,1,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxbig1pk.png",self))','triangle31pk')   
+self.add_adb('data/bk_imgobstacle_triangularboxbig2pk.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,2,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxbig2pk.png",self))','triangle32pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxbig3pk.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,3,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxbig3pk.png",self))','triangle33pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxbig4pk.png',100,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,100,4,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxbig4pk.png",self))','triangle34pk')    
+#
+# Right Triangles Elongated Pachinko
+self.add_adb('data/bk_imgobstacle_triangularboxmedw1_pk.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,1,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedw1_pk.png",self))','triangle2w1pk')   
+self.add_adb('data/bk_imgobstacle_triangularboxmedw2_pk.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,2,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedw2_pk.png",self))','triangle2w2pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedw3_pk.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,3,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedw3_pk.png",self))','triangle2w3pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedw4_pk.png',100,50,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,100,50,4,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedw4_pk.png",self))','triangle2w4pk')    
+self.add_adb('data/bk_imgobstacle_triangularboxmedh1_pk.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,1,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedh1_pk.png",self))','triangle2h1pk')   
+self.add_adb('data/bk_imgobstacle_triangularboxmedh2_pk.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,2,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedh2_pk.png",self))','triangle2h2pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedh3_pk.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,3,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedh3_pk.png",self))','triangle2h3pk') 
+self.add_adb('data/bk_imgobstacle_triangularboxmedh4_pk.png',50,100,'self.obstacles.append(obj_righttriangleobstacle(INX,INY,50,100,4,self.cor_pk,self.cort_pk,"data/bk_imgobstacle_triangularboxmedh4_pk.png",self))','triangle2h4pk') 
+ 
+# Moving platforms/shrinkers etc
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+
+self.add_adb('data/bk_imgops_plaftorm1.png',200,25,'self.ops.append(obj_opsplatform([INX,INY,200,25,500,1,0,1],self))','platform1')
+self.add_adb('data/bk_imgops_plaftorm1a.png',200,25,'self.ops.append(obj_opsplatform([INX,INY,200,25,500,1,0,-1],self))','platform1a')
+self.add_adb('data/bk_imgops_plaftorm1t.png',200,25,'self.ops.append(obj_opsplatform([INX,INY,200,25,330,1.5,0,1],self))','platform1t')
+self.add_adb('data/bk_imgops_plaftorm1at.png',200,25,'self.ops.append(obj_opsplatform([INX,INY,200,25,330,1.5,0,-1],self))','platform1ta')
+self.add_adb('data/bk_imgops_plaftorm1tt.png',200,25,'self.ops.append(obj_opsplatform([INX,INY,200,25,250,2,0,1],self))','platform1tt')
+self.add_adb('data/bk_imgops_plaftorm1att.png',200,25,'self.ops.append(obj_opsplatform([INX,INY,200,25,250,2,0,-1],self))','platform1tta')
+
+self.add_adb('data/bk_imgops_plaftorm3.png',150,25,'self.ops.append(obj_opsplatform([INX,INY,150,25,375,1,0,1],self))','platform3')
+self.add_adb('data/bk_imgops_plaftorm3a.png',150,25,'self.ops.append(obj_opsplatform([INX,INY,150,25,375,1,0,-1],self))','platform3a')
+self.add_adb('data/bk_imgops_plaftorm3t.png',150,25,'self.ops.append(obj_opsplatform([INX,INY,150,25,250,1.5,0,1],self))','platform3t')
+self.add_adb('data/bk_imgops_plaftorm3at.png',150,25,'self.ops.append(obj_opsplatform([INX,INY,150,25,250,1.5,0,-1],self))','platform3ta')
+self.add_adb('data/bk_imgops_plaftorm3tt.png',150,25,'self.ops.append(obj_opsplatform([INX,INY,150,25,190,1,0,1],self))','platform3tt')
+self.add_adb('data/bk_imgops_plaftorm3att.png',150,25,'self.ops.append(obj_opsplatform([INX,INY,150,25,190,1,0,-1],self))','platform3tta')
+
+self.add_adb('data/bk_imgops_plaftorm2.png',100,25,'self.ops.append(obj_opsplatform([INX,INY,100,25,250,2,0,1],self))','platform2')
+self.add_adb('data/bk_imgops_plaftorm2a.png',100,25,'self.ops.append(obj_opsplatform([INX,INY,100,25,250,2,0,-1],self))','platform2a')
+self.add_adb('data/bk_imgops_plaftorm2t.png',100,25,'self.ops.append(obj_opsplatform([INX,INY,100,25,165,2,0,1],self))','platform2t')
+self.add_adb('data/bk_imgops_plaftorm2at.png',100,25,'self.ops.append(obj_opsplatform([INX,INY,100,25,165,2,0,-1],self))','platform2ta')
+self.add_adb('data/bk_imgops_plaftorm2tt.png',100,25,'self.ops.append(obj_opsplatform([INX,INY,100,25,125,2,0,1],self))','platform2tt')
+self.add_adb('data/bk_imgops_plaftorm2att.png',100,25,'self.ops.append(obj_opsplatform([INX,INY,100,25,125,2,0,-1],self))','platform2tta')
+
+self.add_adb('data/bk_imgops_plaftorm1y.png',25,200,'self.ops.append(obj_opsplatform([INX,INY,25,200,500,0,1,1],self))','platformy1')
+self.add_adb('data/bk_imgops_plaftorm1ya.png',25,200,'self.ops.append(obj_opsplatform([INX,INY,25,200,500,0,1,-1],self))','platformy1a')
+self.add_adb('data/bk_imgops_plaftorm1yt.png',25,200,'self.ops.append(obj_opsplatform([INX,INY,25,200,330,0,1.5,1],self))','platformy1t')
+self.add_adb('data/bk_imgops_plaftorm1yat.png',25,200,'self.ops.append(obj_opsplatform([INX,INY,25,200,330,0,1.5,-1],self))','platformy1ta')
+self.add_adb('data/bk_imgops_plaftorm1ytt.png',25,200,'self.ops.append(obj_opsplatform([INX,INY,25,200,250,0,2,1],self))','platformy1tt')
+self.add_adb('data/bk_imgops_plaftorm1yatt.png',25,200,'self.ops.append(obj_opsplatform([INX,INY,25,200,250,0,2,-1],self))','platformy1tta')
+
+self.add_adb('data/bk_imgops_plaftorm3y.png',25,150,'self.ops.append(obj_opsplatform([INX,INY,25,150,375,0,1,1],self))','platformy3')
+self.add_adb('data/bk_imgops_plaftorm3ya.png',25,150,'self.ops.append(obj_opsplatform([INX,INY,25,150,375,0,1,-1],self))','platformy3a')
+self.add_adb('data/bk_imgops_plaftorm3yt.png',25,150,'self.ops.append(obj_opsplatform([INX,INY,25,150,250,0,1.5,1],self))','platformy3t')
+self.add_adb('data/bk_imgops_plaftorm3yat.png',25,150,'self.ops.append(obj_opsplatform([INX,INY,25,150,250,0,1.5,-1],self))','platformy3ta')
+self.add_adb('data/bk_imgops_plaftorm3ytt.png',25,150,'self.ops.append(obj_opsplatform([INX,INY,25,150,190,0,1,1],self))','platformy3tt')
+self.add_adb('data/bk_imgops_plaftorm3yatt.png',25,150,'self.ops.append(obj_opsplatform([INX,INY,25,150,190,0,1,-1],self))','platformy3tta')
+
+self.add_adb('data/bk_imgops_plaftorm2y.png',25,100,'self.ops.append(obj_opsplatform([INX,INY,25,100,250,0,2,1],self))','platformy2')
+self.add_adb('data/bk_imgops_plaftorm2ya.png',25,100,'self.ops.append(obj_opsplatform([INX,INY,25,100,250,0,2,-1],self))','platformy2a')
+self.add_adb('data/bk_imgops_plaftorm2yt.png',25,100,'self.ops.append(obj_opsplatform([INX,INY,25,100,165,0,2,1],self))','platformy2t')
+self.add_adb('data/bk_imgops_plaftorm2yat.png',25,100,'self.ops.append(obj_opsplatform([INX,INY,25,100,165,0,2,-1],self))','platformy2ta')
+self.add_adb('data/bk_imgops_plaftorm2ytt.png',25,100,'self.ops.append(obj_opsplatform([INX,INY,25,100,125,0,2,1],self))','platformy2tt')
+self.add_adb('data/bk_imgops_plaftorm2yatt.png',25,100,'self.ops.append(obj_opsplatform([INX,INY,25,100,125,0,2,-1],self))','platformy2tta')
+
+self.add_adb('data/bk_imgops_shrinker15.png',15,15,'self.ops.append(obj_opsshrinker([INX,INY,15,"data/bk_imgops_shrinker15.png","data/bk_imgops_shrinker15hit.png"],self))','shrinker15')
+self.add_adb('data/bk_imgops_shrinker25.png',25,25,'self.ops.append(obj_opsshrinker([INX,INY,25,"data/bk_imgops_shrinker25.png","data/bk_imgops_shrinker25hit.png"],self))','shrinker25')
+self.add_adb('data/bk_imgops_shrinker30.png',30,30,'self.ops.append(obj_opsshrinker([INX,INY,30,"data/bk_imgops_shrinker30.png","data/bk_imgops_shrinker30hit.png"],self))','shrinker30')
+self.add_adb('data/bk_imgops_shrinker50.png',50,50,'self.ops.append(obj_opsshrinker([INX,INY,50,"data/bk_imgops_shrinker50.png","data/bk_imgops_shrinker50hit.png"],self))','shrinker50')
+
+# forces: reset
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgforce_resetboxsmall1.png',50,50,'self.forces.append(obj_forceresetinbox([INX,INY,50,50],self))','resetbox1s')
+self.add_adb('data/bk_imgforce_resetboxsmall1w4.png',200,50,'self.forces.append(obj_forceresetinbox([INX,INY,200,50],self))','resetbox1sw4')
+self.add_adb('data/bk_imgforce_resetboxsmall1w8.png',400,50,'self.forces.append(obj_forceresetinbox([INX,INY,400,50],self))','resetbox1sw8')
+self.add_adb('data/bk_imgforce_resetbox1.png',100,100,'self.forces.append(obj_forceresetinbox([INX,INY,100,100],self))','resetbox1')
+self.add_adb('data/bk_imgforce_resetboxthinwm4.png',10,10,'self.forces.append(obj_forceresetinbox([INX,INY,10,10],self))','resetbox1thinm4')
+self.add_adb('data/bk_imgforce_resetboxthinwm2.png',25,10,'self.forces.append(obj_forceresetinbox([INX,INY,25,10],self))','resetbox1thinm2')
+self.add_adb('data/bk_imgforce_resetboxthin.png',50,10,'self.forces.append(obj_forceresetinbox([INX,INY,50,10],self))','resetbox1thin')
+self.add_adb('data/bk_imgforce_resetboxthinw2.png',100,10,'self.forces.append(obj_forceresetinbox([INX,INY,100,10],self))','resetbox1thinw2')
+self.add_adb('data/bk_imgforce_resetboxthinw4.png',200,10,'self.forces.append(obj_forceresetinbox([INX,INY,200,10],self))','resetbox1thinw4')
+self.add_adb('data/bk_imgforce_resetboxthinw8.png',400,10,'self.forces.append(obj_forceresetinbox([INX,INY,400,10],self))','resetbox1thinw8')
+self.add_adb('data/bk_imgforce_resetcirclesmall1.png',50,50,'self.forces.append(obj_forceresetincircle([INX,INY,50],self))','resetcircle1s')
+self.add_adb('data/bk_imgforce_resetcircle1.png',100,100,'self.forces.append(obj_forceresetincircle([INX,INY,100],self))','resetcircle1')     
+
+# forces: viscosity
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgforce_spillsmall.png',25,25,'self.forces.append(obj_forceviscosityincircle([self.fvisco,INX,INY,25,"data/bk_imgforce_spillsmall.png"],self))','spill1')
+self.add_adb('data/bk_imgforce_spillmed.png',50,50,'self.forces.append(obj_forceviscosityincircle([self.fvisco,INX,INY,50,"data/bk_imgforce_spillmed.png"],self))','spill2')
+self.add_adb('data/bk_imgforce_spillbig.png',100,100,'self.forces.append(obj_forceviscosityincircle([self.fvisco,INX,INY,100,"data/bk_imgforce_spillbig.png"],self))','spill3')
+self.add_adb('data/bk_imgforce_icespillmed.png',50,50,'self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,INX,INY,50,"data/bk_imgforce_icespillmed.png"],self))','icespill2')
+self.add_adb('data/bk_imgforce_icespillbig.png',100,100,'self.forces.append(obj_forceviscosityincircle([self.fvisco_ice,INX,INY,100,"data/bk_imgforce_icespillbig.png"],self))','icespill3')
+
+self.add_adb('data/bk_imgforce_viscosityboxsmall.png',50,50,'self.forces.append(obj_forceviscosityinbox([self.fvisco,INX,INY,50,50,"data/bk_imgforce_viscosityboxsmall.png"],self))','viscoboxs')
+self.add_adb('data/bk_imgforce_viscosityboxsmallt.png',50,50,'self.forces.append(obj_forceviscosityinbox([self.fvisco,INX,INY,50,50,False],self))','viscoboxst')
+self.add_adb('data/bk_imgforce_viscositybox.png',100,100,'self.forces.append(obj_forceviscosityinbox([self.fvisco,INX,INY,100,100,"data/bk_imgforce_viscositybox.png"],self))','viscobox')
+self.add_adb('data/bk_imgforce_viscosityboxt.png',100,100,'self.forces.append(obj_forceviscosityinbox([self.fvisco,INX,INY,100,100,False],self))','viscoboxt')
+
+
+# forces: gravity boxes
+self.add_adb('data/bk_imgforce_gravityboxsmall1.png',50,50,'self.forces.append(obj_forcegravityinbox([INX,INY,50,50,self.fgravi,-90,"data/bk_imgforce_gravityboxsmall1.png"],self))','gravitybox1s')
+self.add_adb('data/bk_imgforce_gravityboxsmall2.png',50,50,'self.forces.append(obj_forcegravityinbox([INX,INY,50,50,self.fgravi,  0,"data/bk_imgforce_gravityboxsmall2.png"],self))','gravitybox2s')
+self.add_adb('data/bk_imgforce_gravityboxsmall3.png',50,50,'self.forces.append(obj_forcegravityinbox([INX,INY,50,50,self.fgravi, 90,"data/bk_imgforce_gravityboxsmall3.png"],self))','gravitybox3s')
+self.add_adb('data/bk_imgforce_gravityboxsmall4.png',50,50,'self.forces.append(obj_forcegravityinbox([INX,INY,50,50,self.fgravi,180,"data/bk_imgforce_gravityboxsmall4.png"],self))','gravitybox4s')
+self.add_adb('data/bk_imgforce_gravityboxsmall1w8.png',400,50,'self.forces.append(obj_forcegravityinbox([INX,INY,400,50,self.fgravi,-90,"data/bk_imgforce_gravityboxsmall1w8.png"],self))','gravitybox1sw8')
+self.add_adb('data/bk_imgforce_gravityboxsmall1w8t.png',400,50,'self.forces.append(obj_forcegravityinbox([INX,INY,400,50,self.fgravi,-90,False],self))','gravitybox1sw8t')
+self.add_adb('data/bk_imgforce_gravityboxsmall3w8.png',400,50,'self.forces.append(obj_forcegravityinbox([INX,INY,400,50,self.fgravi, 90,"data/bk_imgforce_gravityboxsmall3w8.png"],self))','gravitybox3sw8')
+self.add_adb('data/bk_imgforce_gravityboxsmall3w8t.png',400,50,'self.forces.append(obj_forcegravityinbox([INX,INY,400,50,self.fgravi, 90,False],self))','gravitybox3sw8t')
+self.add_adb('data/bk_imgforce_gravitybox1.png',100,100,'self.forces.append(obj_forcegravityinbox([INX,INY,100,100,self.fgravi,-90,"data/bk_imgforce_gravitybox1.png"],self))','gravitybox1')
+self.add_adb('data/bk_imgforce_gravitybox1t.png',100,100,'self.forces.append(obj_forcegravityinbox([INX,INY,100,100,self.fgravi,-90,False],self))','gravitybox1t')
+self.add_adb('data/bk_imgforce_gravitybox2.png',100,100,'self.forces.append(obj_forcegravityinbox([INX,INY,100,100,self.fgravi,  0,"data/bk_imgforce_gravitybox2.png"],self))','gravitybox2')
+self.add_adb('data/bk_imgforce_gravitybox3.png',100,100,'self.forces.append(obj_forcegravityinbox([INX,INY,100,100,self.fgravi, 90,"data/bk_imgforce_gravitybox3.png"],self))','gravitybox3')
+self.add_adb('data/bk_imgforce_gravitybox4.png',100,100,'self.forces.append(obj_forcegravityinbox([INX,INY,100,100,self.fgravi,180,"data/bk_imgforce_gravitybox4.png"],self))','gravitybox4')
+
+# forces: gravity circles
+self.add_adb('data/bk_imgforce_gravity1.png',100,100,'self.forces.append(obj_forcegravityincircle([INX,INY,100,self.fgravi,-90,"data/bk_imgforce_gravity1.png"],self))','gravity1')
+self.add_adb('data/bk_imgforce_gravity2.png',100,100,'self.forces.append(obj_forcegravityincircle([INX,INY,100,self.fgravi,  0,"data/bk_imgforce_gravity2.png"],self))','gravity2')
+self.add_adb('data/bk_imgforce_gravity3.png',100,100,'self.forces.append(obj_forcegravityincircle([INX,INY,100,self.fgravi, 90,"data/bk_imgforce_gravity3.png"],self))','gravity3')
+self.add_adb('data/bk_imgforce_gravity4.png',100,100,'self.forces.append(obj_forcegravityincircle([INX,INY,100,self.fgravi,180,"data/bk_imgforce_gravity4.png"],self))','gravity4')       
+
+# forces: springs
+self.add_adb('data/bk_imgforce_spring.png',100,100,'self.forces.append(obj_forcespringincircle([INX,INY,100,self.fspring,"data/bk_imgforce_spring.png"],self))','spring1')
+self.add_adb('data/bk_imgforce_springt.png',100,100,'self.forces.append(obj_forcespringincircle([INX,INY,100,self.fspring,False],self))','spring1t')
+self.add_adb('data/bk_imgforce_springbig.png',200,200,'self.forces.append(obj_forcespringincircle([INX,INY,200,self.fspring,"data/bk_imgforce_springbig.png"],self))','spring2')
+self.add_adb('data/bk_imgforce_springbigt.png',200,200,'self.forces.append(obj_forcespringincircle([INX,INY,200,self.fspring,False],self))','spring2t')
+self.add_adb('data/bk_imgforce_springbox.png',100,100,'self.forces.append(obj_forcespringinbox([INX,INY,100,100,0,self.fspring,"data/bk_imgforce_springbox.png"],self))','springb1')
+self.add_adb('data/bk_imgforce_springboxt.png',100,100,'self.forces.append(obj_forcespringinbox([INX,INY,100,100,0,self.fspring,False],self))','springb1t')
+
+self.add_adb('data/bk_imgforce_springpush.png',100,100,'self.forces.append(obj_forcespringincircle([INX,INY,100,-self.fspring,"data/bk_imgforce_springpush.png"],self))','spring1push')
+self.add_adb('data/bk_imgforce_springpusht.png',100,100,'self.forces.append(obj_forcespringincircle([INX,INY,100,-self.fspring,False],self))','spring1pusht')
+self.add_adb('data/bk_imgforce_springbigpush.png',200,200,'self.forces.append(obj_forcespringincircle([INX,INY,200,-self.fspring,"data/bk_imgforce_springbigpush.png"],self))','spring2push')
+self.add_adb('data/bk_imgforce_springbigpusht.png',200,200,'self.forces.append(obj_forcespringincircle([INX,INY,200,-self.fspring,False],self))','spring2pusht')
+self.add_adb('data/bk_imgforce_springboxpush.png',100,100,'self.forces.append(obj_forcespringinbox([INX,INY,100,100,0,-self.fspring,"data/bk_imgforce_springboxpush.png"],self))','springb1push')
+self.add_adb('data/bk_imgforce_springboxpusht.png',100,100,'self.forces.append(obj_forcespringinbox([INX,INY,100,100,0,-self.fspring,False],self))','springb1pusht')
+self.add_adb('data/bk_imgforce_springboxpush_w6.png',600,100,'self.forces.append(obj_forcespringinboxnomass([INX,INY,600,100,0,-self.fspring,"data/bk_imgforce_springboxpush_w6.png"],self))','springb1push_w6')
+self.add_adb('data/bk_imgforce_springboxpush_h4.png',100,400,'self.forces.append(obj_forcespringinboxnomass([INX,INY,100,400,-self.fspring,0,"data/bk_imgforce_springboxpush_h4.png"],self))','springb1push_h4')
+
+
+#forces gyre circles
+self.add_adb('data/bk_imgforce_gyre.png',100,100,'self.forces.append(obj_forcegyreincircle([INX,INY,100,self.fgyre,self.fgyrec,"data/bk_imgforce_gyre.png"],self))','gyre1')
+self.add_adb('data/bk_imgforce_gyreanti.png',100,100,'self.forces.append(obj_forcegyreincircle([INX,INY,100,-self.fgyre,self.fgyrec,"data/bk_imgforce_gyreanti.png"],self))','gyre1a')
+self.add_adb('data/bk_imgforce_gyrebig.png',200,200,'self.forces.append(obj_forcegyreincircle([INX,INY,200,self.fgyre,self.fgyrec,"data/bk_imgforce_gyrebig.png"],self))','gyre2')
+self.add_adb('data/bk_imgforce_gyrebiganti.png',200,200,'self.forces.append(obj_forcegyreincircle([INX,INY,200,-self.fgyre,self.fgyrec,"data/bk_imgforce_gyrebiganti.png"],self))','gyre2a')
+
+# forces : coriolis
+self.add_adb('data/bk_imgforce_coriolis.png',100,100,'self.forces.append(obj_forcecoriolisincircle([INX,INY,100,-self.fcorio,"data/bk_imgforce_coriolis.png"],self))','coriolis1')
+self.add_adb('data/bk_imgforce_coriolisa.png',100,100,'self.forces.append(obj_forcecoriolisincircle([INX,INY,100,self.fcorio,"data/bk_imgforce_coriolisa.png"],self))','coriolis1a')
+self.add_adb('data/bk_imgforce_coriolisbox.png',100,100,'self.forces.append(obj_forcecoriolisinbox([INX,INY,100,100,-self.fcorio,"data/bk_imgforce_coriolisbox.png"],self))','coriolisbox1')
+self.add_adb('data/bk_imgforce_coriolisboxa.png',100,100,'self.forces.append(obj_forcecoriolisinbox([INX,INY,100,100,self.fcorio,"data/bk_imgforce_coriolisboxa.png"],self))','coriolisbox1a')
+self.add_adb('data/bk_imgforce_coriolisbig.png',200,200,'self.forces.append(obj_forcecoriolisincircle([INX,INY,200,-self.fcorio,"data/bk_imgforce_coriolisbig.png"],self))','coriolisbig1')
+self.add_adb('data/bk_imgforce_coriolisbiga.png',200,200,'self.forces.append(obj_forcecoriolisincircle([INX,INY,200,self.fcorio,"data/bk_imgforce_coriolisbiga.png"],self))','coriolisbig1a')
+
+# forces: over entire screen (invisible)
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgforce_gravityall1.png',100,100,'self.forces.append(obj_forcegravityeverywhere([INX,INY,100,self.fgravi,-90,"None"],self))','gravityall1')
+self.add_adb('data/bk_imgforce_gravityall2.png',100,100,'self.forces.append(obj_forcegravityeverywhere([INX,INY,100,self.fgravi,  0,"None"],self))','gravityall2')
+self.add_adb('data/bk_imgforce_gravityall3.png',100,100,'self.forces.append(obj_forcegravityeverywhere([INX,INY,100,self.fgravi, 90,"None"],self))','gravityall3')
+self.add_adb('data/bk_imgforce_gravityall4.png',100,100,'self.forces.append(obj_forcegravityeverywhere([INX,INY,100,self.fgravi,180,"None"],self))','gravityall4')
+
+# planets
+self.add_adb('data/bk_imgforce_planetgravity.png',50,50,'self.forces.append(obj_forceplanetgravity([INX,INY,50,100,24000*self.fgravi,"None"],self))','gravityto')
+self.add_adb('data/bk_imgforce_planetgravity_1d.png',50,50,'self.forces.append(obj_forceplanetgravity_1od([INX,INY,50,100,100*self.fgravi,"None"],self))','gravityto_1d')
+self.add_adb('data/bk_imgforce_planetgravity_cte.png',50,50,'self.forces.append(obj_forceplanetgravity_cte([INX,INY,50,100,self.fgravi,"None"],self))','gravityto_cte')
+
+
+self.add_adb('data/bk_imgforce_gyreall.png',100,100,'self.forces.append(obj_forcegyreeverywhere([INX,INY,100,-self.fgyre,0,"None"],self))','gyreall')
+self.add_adb('data/bk_imgforce_gyreallanti.png',100,100,'self.forces.append(obj_forcegyreeverywhere([INX,INY,100,self.fgyre,0,"None"],self))','gyrealla')
+self.add_adb('data/bk_imgforce_coriolisall.png',100,100,'self.forces.append(obj_forcecorioliseverywhere([INX,INY,100,-self.fcorio,"None"],self))','coriolisall1')
+self.add_adb('data/bk_imgforce_coriolisalla.png',100,100,'self.forces.append(obj_forcecorioliseverywhere([INX,INY,100,self.fcorio,"None"],self))','coriolisall1a')
+#
+# level boundaries
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll  
+self.add_adb('data/bk_imgcommand_openxbdry.png',64,36,'self.boundaries.makeperiodicinx()','bdryperiodicx')
+self.add_adb('data/bk_imgcommand_openybdry.png',64,36,'self.boundaries.makeperiodiciny()','bdryperiodicy')
+
+# forces: specific environments (combines different forces/effects)# Must be placed before other actors to take effect!
+self.add_adb('data/bk_imgenv_water_icon.png',50,37,'self.forces.append(obj_forceenvwater([INX,INY,self.fgravi*0.03],self))','envwater1')       
+self.add_adb('data/bk_imgenv_space_icon.png',50,37,'self.ops.append(obj_opsbackground([400,300,400,300,"data/bk_imgenv_space.png"],self))','envspace')
+self.add_adb('data/bk_imgenv_ice_icon.png',50,37,'self.ops.append(obj_opsbackground([640,360,600,350,"data/bk_imgenv_ice.png"],self))','envice')
+self.add_adb('data/bk_imgenv_sticky_icon.png',50,37,'self.ops.append(obj_opsbackground([400,300,400,300,"data/bk_imgenv_sticky.png"],self))','envsticky')
+ 
+#
+#
+# Regular Decorations
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+self.add_adb('data/bk_imgdeco_bush1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_bush1.png",self))','decobush1') 
+self.add_adb('data/bk_imgdeco_bush1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_bush1a.png",self))','decobush1a') 
+self.add_adb('data/bk_imgdeco_tree1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_tree1.png",self))','decotree1') 
+self.add_adb('data/bk_imgdeco_tree1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_tree1a.png",self))','decotree1a')
+self.add_adb('data/bk_imgdeco_rock1.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_rock1.png",self))','decorock1') 
+self.add_adb('data/bk_imgdeco_rock1a.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_rock1a.png",self))','decorock1a')
+self.add_adb('data/bk_imgdeco_rock2.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_rock2.png",self))','decorock2')
+self.add_adb('data/bk_imgdeco_rock2a.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_rock2a.png",self))','decorock2a') 
+self.add_adb('data/bk_imgdeco_rock3.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_rock3.png",self))','decorock3')
+self.add_adb('data/bk_imgdeco_rock3a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_rock3a.png",self))','decorock3a') 
+self.add_adb('data/bk_imgdeco_rock4.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_rock4.png",self))','decorock4')
+self.add_adb('data/bk_imgdeco_rock4a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_rock4a.png",self))','decorock4a') 
+
+self.add_adb('data/bk_imgdeco_cloud1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_cloud1.png",self))','decocloud1') 
+self.add_adb('data/bk_imgdeco_cloud1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_cloud1a.png",self))','decocloud1a') 
+self.add_adb('data/bk_imgdeco_cloud2.png',100,50,'self.decos.append(obj_deco(INX,INY,100,50,"data/bk_imgdeco_cloud2.png",self))','decocloud2')
+self.add_adb('data/bk_imgdeco_cloud2a.png',100,50,'self.decos.append(obj_deco(INX,INY,100,50,"data/bk_imgdeco_cloud2a.png",self))','decocloud2a')
+
+self.add_adb('data/bk_imgdeco_fish1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_fish1.png",self))','decofish1') 
+self.add_adb('data/bk_imgdeco_fish1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_fish1a.png",self))','decofish1a') 
+self.add_adb('data/bk_imgdeco_fish2.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_fish2.png",self))','decofish2') 
+self.add_adb('data/bk_imgdeco_fish2a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_fish2a.png",self))','decofish2a') 
+self.add_adb('data/bk_imgdeco_bubbles1.png',15,15,'self.decos.append(obj_deco(INX,INY,15,15,"data/bk_imgdeco_bubbles1.png",self))','bubbles1') 
+self.add_adb('data/bk_imgdeco_seaweed1.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_seaweed1.png",self))','seaweed1') 
+self.add_adb('data/bk_imgdeco_seaweed1a.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_seaweed1a.png",self))','seaweed1a') 
+self.add_adb('data/bk_imgdeco_seaweed2.png',25,75,'self.decos.append(obj_deco(INX,INY,25,75,"data/bk_imgdeco_seaweed2.png",self))','seaweed2') 
+self.add_adb('data/bk_imgdeco_seaweed2a.png',25,75,'self.decos.append(obj_deco(INX,INY,25,75,"data/bk_imgdeco_seaweed2a.png",self))','seaweed2a') 
+self.add_adb('data/bk_imgdeco_coral1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_coral1.png",self))','decocoral1') 
+self.add_adb('data/bk_imgdeco_coral1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_coral1a.png",self))','decocoral1a') 
+self.add_adb('data/bk_imgdeco_castle1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_castle1.png",self))','decocastle1') 
+self.add_adb('data/bk_imgdeco_castle2.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_castle2.png",self))','decocastle2') 
+self.add_adb('data/bk_imgdeco_castle3.png',50,15,'self.decos.append(obj_deco(INX,INY,50,15,"data/bk_imgdeco_castle3.png",self))','decocastle3')
+self.add_adb('data/bk_imgdeco_castle4.png',25,15,'self.decos.append(obj_deco(INX,INY,25,15,"data/bk_imgdeco_castle4.png",self))','decocastle4')
+
+
+self.add_adb('data/bk_imgdeco_palmtree1.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_palmtree1.png",self))','palmtree1')
+self.add_adb('data/bk_imgdeco_palmtree1a.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_palmtree1a.png",self))','palmtree1a')
+
+self.add_adb('data/bk_imgdeco_palmtree2.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_palmtree2.png",self))','decopalmtree2') 
+self.add_adb('data/bk_imgdeco_palmtree2a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_palmtree2a.png",self))','decopalmtree2a') 
+
+self.add_adb('data/bk_imgdeco_volcano2.png',30,30,'self.decos.append(obj_deco(INX,INY,30,30,"data/bk_imgdeco_volcano2.png",self))','decovolcano2') 
+self.add_adb('data/bk_imgdeco_volcano2a.png',30,30,'self.decos.append(obj_deco(INX,INY,30,30,"data/bk_imgdeco_volcano2a.png",self))','decovolcano2a')
+self.add_adb('data/bk_imgdeco_volcano1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_volcano1.png",self))','decovolcano1') 
+self.add_adb('data/bk_imgdeco_volcano1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_volcano1a.png",self))','decovolcano1a') 
+
+self.add_adb('data/bk_imgdeco_parrot1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_parrot1.png",self))','decoparrot1') 
+self.add_adb('data/bk_imgdeco_parrot1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_parrot1a.png",self))','decoparrot1a') 
+
+self.add_adb('data/bk_imgdeco_anchor1.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_anchor1.png",self))','decoanchor1') 
+self.add_adb('data/bk_imgdeco_anchor1a.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_anchor1a.png",self))','decoanchor1a') 
+
+self.add_adb('data/bk_imgdeco_space0.png',5,5,'self.decos.append(obj_deco(INX,INY,5,5,"data/bk_imgdeco_space0.png",self))','decospace0') 
+self.add_adb('data/bk_imgdeco_space0a.png',10,10,'self.decos.append(obj_deco(INX,INY,10,10,"data/bk_imgdeco_space0a.png",self))','decospace0a') 
+self.add_adb('data/bk_imgdeco_space0b.png',15,15,'self.decos.append(obj_deco(INX,INY,15,15,"data/bk_imgdeco_space0b.png",self))','decospace0b') 
+self.add_adb('data/bk_imgdeco_space1.png',25,25,'self.decos.append(obj_deco(INX,INY,25,25,"data/bk_imgdeco_space1.png",self))','decospace1') 
+self.add_adb('data/bk_imgdeco_space2.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_space2.png",self))','decospace2') 
+self.add_adb('data/bk_imgdeco_space3.png',50,50,'self.decos.append(obj_deco(INX,INY,50,50,"data/bk_imgdeco_space3.png",self))','decospace3') 
+
+#
+# Decorations Cameleon (takes arbitrary color)
+
+self.add_adb('data/bk_imgdeco_area1s.png',25,25,'self.decos.append(obj_decocameleon(INX,INY,25,25,(255,255,255),"data/bk_imgdeco_area1s.png",self))','decoarea1s')
+self.add_adb('data/bk_imgdeco_area1sa.png',25,25,'self.decos.append(obj_decocameleon(INX,INY,25,25,(255,255,255),"data/bk_imgdeco_area1s.png",self))','decoarea1sa')
+self.add_adb('data/bk_imgdeco_cameleon_circle1.png',50,50,'self.decos.append(obj_decocameleon(INX,INY,50,50,(255,255,255),"data/bk_imgdeco_cameleon_circle1.png",self))','decocamc1')
+self.add_adb('data/bk_imgdeco_area1m.png',50,50,'self.decos.append(obj_decocameleon(INX,INY,50,50,(255,255,255),"data/bk_imgdeco_area1m.png",self))','decoarea1m')
+self.add_adb('data/bk_imgdeco_area1ma.png',50,50,'self.decos.append(obj_decocameleon(INX,INY,50,50,(255,255,255),"data/bk_imgdeco_area1m.png",self))','decoarea1ma')
+self.add_adb('data/bk_imgdeco_area1mw.png',100,50,'self.decos.append(obj_decocameleon(INX,INY,100,50,(255,255,255),"data/bk_imgdeco_area1mw.png",self))','decoarea1mw')
+self.add_adb('data/bk_imgdeco_area1mwa.png',100,50,'self.decos.append(obj_decocameleon(INX,INY,100,50,(255,255,255),"data/bk_imgdeco_area1mwa.png",self))','decoarea1maw')
+self.add_adb('data/bk_imgdeco_area1b.png',100,100,'self.decos.append(obj_decocameleon(INX,INY,100,100,(255,255,255),"data/bk_imgdeco_area1b.png",self))','decoarea1b')
+self.add_adb('data/bk_imgdeco_area1ba.png',100,100,'self.decos.append(obj_decocameleon(INX,INY,100,100,(255,255,255),"data/bk_imgdeco_area1b.png",self))','decoarea1ba')
+self.add_adb('data/bk_imgdeco_cameleon_circle2.png',100,100,'self.decos.append(obj_decocameleon(INX,INY,100,100,(255,255,255),"data/bk_imgdeco_cameleon_circle2.png",self))','decocamc1a')
+self.add_adb('data/bk_imgdeco_areaw2h41.png',100,200,'self.decos.append(obj_decocameleon(INX,INY,100,200,(255,255,255),"data/bk_imgdeco_areaw2h41.png",self))','decoareaw2h41')
+self.add_adb('data/bk_imgdeco_areaw2h41a.png',100,200,'self.decos.append(obj_decocameleon(INX,INY,100,200,(255,255,255),"data/bk_imgdeco_areaw2h41a.png",self))','decoareaw2h41a')
+self.add_adb('data/bk_imgdeco_areaw3h41.png',150,200,'self.decos.append(obj_decocameleon(INX,INY,150,200,(255,255,255),"data/bk_imgdeco_areaw3h41.png",self))','decoareaw3h41')
+self.add_adb('data/bk_imgdeco_areaw3h41a.png',150,200,'self.decos.append(obj_decocameleon(INX,INY,150,200,(255,255,255),"data/bk_imgdeco_areaw3h41a.png",self))','decoareaw3h41a')
+self.add_adb('data/bk_imgdeco_areaw4h31.png',200,150,'self.decos.append(obj_decocameleon(INX,INY,200,150,(255,255,255),"data/bk_imgdeco_areaw4h31.png",self))','decoareaw4h31')
+self.add_adb('data/bk_imgdeco_areaw4h31a.png',200,150,'self.decos.append(obj_decocameleon(INX,INY,200,150,(255,255,255),"data/bk_imgdeco_areaw4h31a.png",self))','decoareaw4h31a')
+self.add_adb('data/bk_imgdeco_area1s4w.png',200,25,'self.decos.append(obj_decocameleon(INX,INY,200,25,(255,255,255),"data/bk_imgdeco_area1s4w.png",self))','decoarea1s4w')
+self.add_adb('data/bk_imgdeco_area1s4wa.png',200,25,'self.decos.append(obj_decocameleon(INX,INY,200,25,(255,255,255),"data/bk_imgdeco_area1s4wa.png",self))','decoarea1s4wa')
+self.add_adb('data/bk_imgdeco_area1s8w.png',400,25,'self.decos.append(obj_decocameleon(INX,INY,400,25,(255,255,255),"data/bk_imgdeco_area1s8w.png",self))','decoarea1s8w')
+self.add_adb('data/bk_imgdeco_area1s8wa.png',400,25,'self.decos.append(obj_decocameleon(INX,INY,400,25,(255,255,255),"data/bk_imgdeco_area1s8wa.png",self))','decoarea1s8wa')
+
+#
+#
+# Operations (can take entire screen if cliff map)
+self.actormarkers.append(len(self.actordatabase))# new marker for fast scroll
+#self.add_adb('data/bk_imgops_cliffmap1.png',400,300,'self.ops.append(obj_opscliffbox([400,300,400,300,70,67,(56,51,51),"data/bk_imgops_cliffmap1.png"],self))','cliff1')
+self.add_adb('data/bk_imgops_cliffmap2.png',600,330,'self.ops.append(obj_opscliffbox([600,330,600,330,0,0,(10,10,10),"data/bk_imgops_cliffmap2.png"],self))','cliff2')     
+
+self.add_adb('data/bk_imgops_positioner.png',35,35,'self.ops.append(obj_opspositioner([INX,INY,35,35,"data/bk_imgops_positioner.png"],self))','positioner')
+
+
