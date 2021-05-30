@@ -1,3 +1,17 @@
+  #param_playerlevelblank# #0#
+  #param_levelind# #0#
+self.cameramode=1#param_cameramode#1#0#
+self.cameradist=100#param_cameradist#100#0#
+self.doplayarea=True#param_doplayarea#True#0#
+self.dplay=100#param_dplay#100#0#
+self.use_mcircle_collisions=True#param_use_mcircle_collisions#True#0#
+self.texton=True#param_texton#True#0#
+  #param_blank# #0#
+  #param_playershotind# #0#
+self.maxshoot=500#param_maxshoot#500#0#
+self.usechargeshot=True#param_usechargeshot#True#0#
+self.useautochargeshot=False#param_useautochargeshot#False#0#
+self.usehovershot=False#param_usehovershot#False#0#
 self.usewarpshot=False#param_usewarpshot#False#0#
 self.useslowmoshot=False#param_useslowmoshot#False#0#
 self.use4dirshot=False#param_use4dirshot#False#0#
@@ -53,20 +67,6 @@ self.fgyre=0.03#param_fgyre#0.03#0#
 self.fgyrec=0.5#param_fgyrec#0.5#0#
 self.fcorio=0.1#param_fcorio#0.1#0#
 self.fspring=0.5#param_fspring#0.5#0#
-  #param_playerlevelblank# #0#
-  #param_levelind# #0#
-self.cameramode=1#param_cameramode#1#0#
-self.cameradist=100#param_cameradist#100#0#
-self.doplayarea=True#param_doplayarea#True#0#
-self.dplay=100#param_dplay#100#0#
-self.use_mcircle_collisions=True#param_use_mcircle_collisions#True#0#
-self.texton=True#param_texton#True#0#
-  #param_blank# #0#
-  #param_playershotind# #0#
-self.maxshoot=500#param_maxshoot#500#0#
-self.usechargeshot=True#param_usechargeshot#True#0#
-self.useautochargeshot=False#param_useautochargeshot#False#0#
-self.usehovershot=False#param_usehovershot#False#0#
 self.background=obj_background("background1",self)#background1#0#0#
 self.borders=obj_borders("borders0",self)#borders0#0#0#
 self.boundaries=obj_boundaries(-1240,2520,-680,1400,40,(255, 255, 255),"bdry_0w3h3c",self)#bdry_0w3h3c#0#0#
@@ -132,3 +132,9 @@ self.decos.append(obj_deco(289,-63,100,50,"data/bk_imgdeco_cloud2a.png",self))#d
 self.decos.append(obj_deco(512,-58,100,50,"data/bk_imgdeco_cloud2a.png",self))#decocloud2a#512#-58#
 self.forces.append(obj_forcespringinbox([-968,410,100,100,0,self.fspring,"data/bk_imgforce_springbox.png"],self))#springb1#-968#410#
 self.forces.append(obj_forcespringincircle([-1058,728,100,self.fspring,"data/bk_imgforce_spring.png"],self))#spring1#-1058#728#
+self.enemies.append(obj_enemy1(521,361,self))#enemy1#521#361#
+self.enemies.append(obj_enemy1(690,467,self))#enemy1#690#467#
+self.enemies.append(obj_enemy1(872,298,self))#enemy1#872#298#
+self.enemies.append(obj_enemy1(1015,368,self))#enemy1#1015#368#
+self.obstacles.append(obj_rectangularobstacle(1070,182,50,100,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxmed2hsp.png",self))#box2hsp#1070#182#
+self.obstacles.append(obj_rectangularobstacle(1129,469,50,100,self.cor_sp,self.cort_sp,"data/bk_imgobstacle_rectangularboxmed2hsp.png",self))#box2hsp#1129#469#

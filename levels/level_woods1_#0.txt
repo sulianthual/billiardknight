@@ -1,4 +1,41 @@
-self.usemovewithkeys=True#param_usemovewithkeys#False#0#
+  #param_playerlevelblank# #0#
+  #param_levelind# #0#
+self.cameramode=0#param_cameramode#0#0#
+self.cameradist=100#param_cameradist#100#0#
+self.doplayarea=True#param_doplayarea#True#0#
+self.dplay=100#param_dplay#100#0#
+self.use_mcircle_collisions=True#param_use_mcircle_collisions#True#0#
+self.texton=True#param_texton#True#0#
+  #param_blank# #0#
+  #param_playershotind# #0#
+self.maxshoot=500#param_maxshoot#500#0#
+self.usechargeshot=True#param_usechargeshot#True#0#
+self.useautochargeshot=False#param_useautochargeshot#False#0#
+self.usehovershot=False#param_usehovershot#False#0#
+self.usewarpshot=False#param_usewarpshot#False#0#
+self.useslowmoshot=False#param_useslowmoshot#False#0#
+self.use4dirshot=False#param_use4dirshot#False#0#
+self.useshotswimsound=False#param_useshotswimsound#False#0#
+self.useshotjumpsound=False#param_useshotjumpsound#False#0#
+  #param_blank# #0#
+self.cooldown=25#param_cooldown#25#0#
+self.shootspeedmult=0#param_shootspeedmult#0#0#
+self.cshootmax=1#param_cshootmax#1#0#
+self.cshootmin=0.25#param_cshootmin#0.25#0#
+self.chargeshotspeed=1.05#param_chargeshotspeed#1.05#0#
+self.autochargeshotspeed=1.05#param_autochargeshotspeed#1.05#0#
+self.hovertime=10#param_hovertime#10#0#
+self.hovercd=0.01#param_hovercd#0.01#0#
+self.hoverendspeedmult=0#param_hoverendspeedmult#0#0#
+self.usemousestop=False#param_usemousestop#False#0#
+self.mousestopmult=0#param_mousestopmult#0#0#
+  #param_blank# #0#
+  #param_playerabiind# #0#
+self.useslowdown=True#param_useslowdown#True#0#
+self.slowdownrate=30#param_slowdownrate#30#0#
+self.usestopdown=False#param_usestopdown#False#0#
+self.stopdownmult=0#param_stopdownmult#0#0#
+self.usemovewithkeys=False#param_usemovewithkeys#False#0#
 self.movewithkeysampl=3#param_movewithkeysampl#3#0#
 self.movewithkeysendspeedmult=0.5#param_movewithkeysendspeedmult#0.5#0#
 self.usedebugreplace=False#param_usedebugreplace#False#0#
@@ -30,38 +67,6 @@ self.fgyre=0.03#param_fgyre#0.03#0#
 self.fgyrec=0.5#param_fgyrec#0.5#0#
 self.fcorio=0.1#param_fcorio#0.1#0#
 self.fspring=0.5#param_fspring#0.5#0#
-  #param_playerlevelblank# #0#
-  #param_levelind# #0#
-self.cameramode=0#param_cameramode#0#0#
-self.cameradist=100#param_cameradist#100#0#
-self.doplayarea=True#param_doplayarea#True#0#
-self.dplay=100#param_dplay#100#0#
-self.texton=True#param_texton#True#0#
-  #param_blank# #0#
-  #param_playershotind# #0#
-self.maxshoot=500#param_maxshoot#500#0#
-self.usechargeshot=True#param_usechargeshot#True#0#
-self.useautochargeshot=False#param_useautochargeshot#False#0#
-self.usehovershot=False#param_usehovershot#False#0#
-self.usewarpshot=False#param_usewarpshot#False#0#
-self.useslowmoshot=False#param_useslowmoshot#False#0#
-self.use4dirshot=False#param_use4dirshot#False#0#
-self.useshotswimsound=False#param_useshotswimsound#False#0#
-self.useshotjumpsound=False#param_useshotjumpsound#False#0#
-  #param_blank# #0#
-self.cooldown=25#param_cooldown#25#0#
-self.shootspeedmult=0#param_shootspeedmult#0#0#
-self.cshootmax=1#param_cshootmax#1#0#
-self.cshootmin=0.25#param_cshootmin#0.25#0#
-self.chargeshotspeed=1.05#param_chargeshotspeed#1.05#0#
-self.autochargeshotspeed=1.05#param_autochargeshotspeed#1.05#0#
-self.hovertime=10#param_hovertime#10#0#
-self.hovercd=0.01#param_hovercd#0.01#0#
-self.hoverendspeedmult=0#param_hoverendspeedmult#0#0#
-  #param_blank# #0#
-  #param_playerabiind# #0#
-self.useslowdown=True#param_useslowdown#True#0#
-self.slowdownrate=30#param_slowdownrate#30#0#
 self.background=obj_background("background0",self)#background0#0#0#
 self.borders=obj_borders("borders0",self)#borders0#0#0#
 self.boundaries=obj_boundaries(40,1240,40,680,40,(255, 255, 255),"bdry_0",self)#bdry_0#0#0#

@@ -340,32 +340,32 @@ class obj_music:
     def __init__(self):
         self.musicvol=0.3# master volume for musics
         self.musicdatabase=[]# music database (name, filename, reference volume)
-        self.musicdatabase.append(obj_onemusic( 'titlescreen' , 'POL-doggo-brothers-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'overworld' , 'POL-doggo-brothers-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'overworldtolevel' , 'POL-doggo-brothers-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'win' , 'Open_Surge_score_jingle-A.mp3' , 0.3 ))# credits as a sound
-        self.musicdatabase.append(obj_onemusic( 'loose' , 'vgdeathsound.mp3' , 0.5 ))# credits as a sound
-        self.musicdatabase.append(obj_onemusic( 'none' , 'POL-doggo-brothers-short.mp3' , 0 )) # no music
+        self.musicdatabase.append(obj_onemusic( 'titlescreen' , 'POL-doggo-brothers-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'overworld' , 'POL-doggo-brothers-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'overworldtolevel' , 'POL-doggo-brothers-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'win' , 'Open_Surge_score_jingle-A.wav' , 0.3 ))# credits as a sound
+        self.musicdatabase.append(obj_onemusic( 'loose' , 'vgdeathsound.wav' , 0.5 ))# credits as a sound
+        self.musicdatabase.append(obj_onemusic( 'none' , 'POL-doggo-brothers-short.wav' , 0 )) # no music
         #
-        self.musicdatabase.append(obj_onemusic( 'chill1' , 'POL-smiley-island-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'chill2' , 'POL-silly-encounter-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'chill3' , 'POL-frozen-village-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'chill4' , 'POL-pet-park-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'fast1' , 'POL-azure-waters-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'fast2' , 'POL-mad-run-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'fast3' , 'POL-king-of-coins-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'fast4' , 'POL-galactic-trek-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'atm1' , 'POL-ocean-floor-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'atm2' , 'POL-foggy-forest-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'atm3' , 'POL-two-fat-gangsters-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'atm4' , 'POL-spooky-toyland-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'atm5' , 'POL-jungle-hideout-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'dark1' , 'POL-chamber-of-secrets-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'dark2' , 'POL-knock-out-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'dark3' , 'POL-combat-plan-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'dark4' , 'POL-power-battle-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'dark5' , 'POL-tlalok-temple-short.mp3' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'mario' , 'POL-staff-roll-short.mp3' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'chill1' , 'POL-smiley-island-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'chill2' , 'POL-silly-encounter-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'chill3' , 'POL-frozen-village-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'chill4' , 'POL-pet-park-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'fast1' , 'POL-azure-waters-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'fast2' , 'POL-mad-run-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'fast3' , 'POL-king-of-coins-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'fast4' , 'POL-galactic-trek-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'atm1' , 'POL-ocean-floor-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'atm2' , 'POL-foggy-forest-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'atm3' , 'POL-two-fat-gangsters-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'atm4' , 'POL-spooky-toyland-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'atm5' , 'POL-jungle-hideout-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'dark1' , 'POL-chamber-of-secrets-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'dark2' , 'POL-knock-out-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'dark3' , 'POL-combat-plan-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'dark4' , 'POL-power-battle-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'dark5' , 'POL-tlalok-temple-short.wav' , 0.3 ))
+        self.musicdatabase.append(obj_onemusic( 'mario' , 'POL-staff-roll-short.wav' , 0.3 ))
         self.music=self.musicdatabase[0]# take first element
         self.start()# start music
 
@@ -6303,7 +6303,7 @@ pygame.init()# Intialize the pygame
 clock = pygame.time.Clock()# start clock (to control framerate)
 #
 #
-print('starting')
+# print('starting')
 # Game Variables
 display=obj_display()# display screen (create first)
 controls=obj_controls()# mouse/keyboard controls (create second)
