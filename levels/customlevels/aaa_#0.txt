@@ -70,7 +70,7 @@ self.fspring=0.5#param_fspring#0.5#0#
 self.background=obj_background("background0",self)#background0#0#0#
 self.borders=obj_borders("borders0",self)#borders0#0#0#
 self.boundaries=obj_boundaries(40,1240,40,680,40,(255, 255, 255),"bdry_0",self)#bdry_0#0#0#
-self.music="dark2"#music_dark2#0#0#
+self.music="mario"#mario#0#0#
 music.change(self.music)#musicchange#0#0#
 self.player=obj_player(202,301,self)#player#202#301#
 self.holesfinish.append(obj_holefinish(402,300,25,"data/bk_imgholefinish.png",self))#holefinish#402#300#

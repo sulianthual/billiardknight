@@ -1,7 +1,7 @@
 
 Credits:
 
-A game by Sulian Thual, 2020 (GNU General Public License v3.0). All musics from PlayOnLoop.com (Licensed under Creative Commons by Attribution 4.0). Sounds from Kenney.nl (License CC0 1.0 Universal), Juhani Junkala (License CC0 creative commons), and opengameart.org (Fupi and Johan Brodd 2014, License Public Domain).
+A game by Sulian Thual, 2020 (GNU General Public License v3.0). All musics from PlayOnLoop.com (Licensed under Creative Commons by Attribution 4.0). Sounds from Kenney.nl (License CC0 1.0 Universal). 
 
 ###############################
 Musics:
@@ -16,14 +16,9 @@ Credit example 2:
 Music: “Galactic Trek”, from PlayOnLoop.com
 Licensed under Creative Commons by Attribution 4.0
 
-###############################
-Musics credited as sounds (because short):
 
-opengameart.org: 8bit-death-whirl (by Fupi, Licensed Public Domain), 
-opengameart.org: Open Surge score jingle, by Johan Brodd 2014 (Licensed Public Domain).
-
-###############################
-Sounds: 
-Kenney Sounds (kenney.nl): (all the impact_....ogg)
-The Essential Retro Video Game Sound Effects Collection (Juhani Junkala): (all the sfx_...wav)
-
+Note on accepted formats:
+no mp3 in pygame 2.0.0 and later
+no wav in 32 bit pcm in pygame 1.9.6 (must be converted to .wav 16 bit pcm)
+to convert:
+ffmpeg -i 111.mp3 -acodec pcm_s16le -ar 16000 out.wav

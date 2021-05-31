@@ -343,8 +343,8 @@ class obj_music:
         self.musicdatabase.append(obj_onemusic( 'titlescreen' , 'POL-doggo-brothers-short.wav' , 0.3 ))
         self.musicdatabase.append(obj_onemusic( 'overworld' , 'POL-doggo-brothers-short.wav' , 0.3 ))
         self.musicdatabase.append(obj_onemusic( 'overworldtolevel' , 'POL-doggo-brothers-short.wav' , 0.3 ))
-        self.musicdatabase.append(obj_onemusic( 'win' , 'Open_Surge_score_jingle-A.wav' , 0.3 ))# credits as a sound
-        self.musicdatabase.append(obj_onemusic( 'loose' , 'vgdeathsound.wav' , 0.5 ))# credits as a sound
+        self.musicdatabase.append(obj_onemusic( 'win' , 'POL-gold-gryphons-short.wav' , 0.3 ))# credits as a sound
+        self.musicdatabase.append(obj_onemusic( 'loose' , 'POL-misty-dungeon-short.wav' , 0.5 ))# credits as a sound
         self.musicdatabase.append(obj_onemusic( 'none' , 'POL-doggo-brothers-short.wav' , 0 )) # no music
         #
         self.musicdatabase.append(obj_onemusic( 'chill1' , 'POL-smiley-island-short.wav' , 0.3 ))
@@ -798,17 +798,13 @@ class obj_creditscreen:
         #
         func_drawtextinrect('A game by Sulian Thual, 2020 (GNU General Public License v3.0)',self.font,(255,255,255),(250*scsx-3,550*scsx-3,125*scsy+2,175*scsy+2))
         func_drawtextinrect('All musics from PlayOnLoop.com (Licensed under Creative Commons by Attribution 4.0)',self.font,(255,255,255),(250*scsx-3,550*scsx-3,180*scsy+2,230*scsy+2))
-        func_drawtextinrect('Sounds from Kenney.nl (License CC0 1.0 Universal), ',self.font,(255,255,255),(250*scsx-3,550*scsx-3,235*scsy+2,285*scsy+2))
-        func_drawtextinrect('from Juhani Junkala (License CC0 creative commons), ',self.font,(255,255,255),(250*scsx-3,550*scsx-3,290*scsy+2,340*scsy+2))
-        func_drawtextinrect('and from opengameart.org (Fupi and Johan Brodd 2014, License Public Domain)',self.font,(255,255,255),(250*scsx-3,550*scsx-3,345*scsy+2,395*scsy+2))
-        func_drawtextinrect('Edit Undo font by Brian Kent',self.font,(255,255,255),(250*scsx-3,550*scsx-3,400*scsy+2,450*scsy+2))
+        func_drawtextinrect('Sounds from Kenney.nl (License CC0 1.0 Universal)',self.font,(255,255,255),(250*scsx-3,550*scsx-3,235*scsy+2,285*scsy+2))
+        func_drawtextinrect('Edit Undo font by Brian Kent',self.font,(255,255,255),(250*scsx-3,550*scsx-3,290*scsy+2,340*scsy+2))
         #
         func_drawtextinrect('A game by Sulian Thual, 2020 (GNU General Public License v3.0)',self.font,(0,0,0),(250*scsx,550*scsx,125*scsy,175*scsy))
         func_drawtextinrect('All musics from PlayOnLoop.com (Licensed under Creative Commons by Attribution 4.0)',self.font,(0,0,0),(250*scsx,550*scsx,180*scsy,230*scsy))
-        func_drawtextinrect('Sounds from Kenney.nl (License CC0 1.0 Universal), ',self.font,(0,0,0),(250*scsx,550*scsx,235*scsy,285*scsy))
-        func_drawtextinrect('from Juhani Junkala (License CC0 creative commons), ',self.font,(0,0,0),(250*scsx,550*scsx,290*scsy,340*scsy))
-        func_drawtextinrect('and from opengameart.org (Fupi and Johan Brodd 2014, License Public Domain)',self.font,(0,0,0),(250*scsx,550*scsx,345*scsy,395*scsy))
-        func_drawtextinrect('Edit Undo font by Brian Kent',self.font,(0,0,0),(250*scsx,550*scsx,400*scsy,450*scsy))
+        func_drawtextinrect('Sounds from Kenney.nl (License CC0 1.0 Universal)',self.font,(0,0,0),(250*scsx,550*scsx,235*scsy,285*scsy))
+        func_drawtextinrect('Edit Undo font by Brian Kent',self.font,(0,0,0),(250*scsx,550*scsx,290*scsy,340*scsy))
 
 
         # Credits:
@@ -6295,7 +6291,8 @@ timer=obj_timer()# Create the object timer for calls
 # Initialize music/sound mixer (recommended before game)
 # pygame.mixer.pre_init(50000, -16, 2, 2048) # best one?
 # pygame.mixer.pre_init(44100, -16, 1, 2048) #
-pygame.mixer.pre_init(22050, -16, 2, 1024)
+# pygame.mixer.pre_init(22050, -16, 2, 1024)
+pygame.mixer.pre_init(22050, -16, 1, 1024)
 pygame.mixer.init()
 
 # Initialize pygame
