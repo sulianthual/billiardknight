@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-# version for : linux 
+# version for : macosx 
 # This code compiles the executable, zips it etc...
 #
 ###############################
@@ -20,7 +20,7 @@ cd ../
 pyinstaller main.spec
 
 # make game folder (name specific to platform
-appname=$appnamepre'_linux'
+appname=$appnamepre'_macosx'
 \rm -R dist/$appname
 mkdir dist/$appname
 
