@@ -1,0 +1,5 @@
+ 
+to convert a bash (.sh) to a batch (.bat):
+https://daniel-sc.github.io/bash-shell-to-bat-converter/
+or
+https://github.com/daniel-sc/bash-shell-to-bat-converter
