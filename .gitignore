@@ -1,3 +1,7 @@
+# Ignore everything in these directories (pyinstaller)
+__pycache__/*
+build/*
+dist/*
 # Ignore save file (one empty savefile should already be uploaded)
 levels/savefile.txt
 # But dont ignore these files

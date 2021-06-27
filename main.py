@@ -6292,7 +6292,7 @@ timer=obj_timer()# Create the object timer for calls
 # pygame.mixer.pre_init(50000, -16, 2, 2048) # best one?
 # pygame.mixer.pre_init(44100, -16, 1, 2048) #
 # pygame.mixer.pre_init(22050, -16, 2, 1024)
-pygame.mixer.pre_init(22050, -16, 1, 1024)
+pygame.mixer.pre_init(22050, -16, 1, 1024)# 22050 is apparently the sampling rate default value
 pygame.mixer.init()
 
 # Initialize pygame

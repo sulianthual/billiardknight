@@ -16,11 +16,12 @@ Credit example 2:
 Music: “Galactic Trek”, from PlayOnLoop.com
 Licensed under Creative Commons by Attribution 4.0
 
+Note:
 
-Note on accepted formats:
-no mp3 in pygame 2.0.0 and later
-no wav in 32 bit pcm in pygame 1.9.6 (must be converted to .wav 16 bit pcm)
-to convert (didnt work):
-ffmpeg -i 111.mp3 -acodec pcm_s16le -ar 16000 out.wav
+from the website these wav are in 32 bit pcm. They dont work with some pygame versions (e.g. 1.9.6)
+so convert them to 16 bit, just run:
 
-Open EVERY wav with audacity and export to wav (16 bit windows by default)
+for i in *.wav; do ffmpeg -i "$i" -f wav "${i%.*}.wav"; done
+
+###############################
+
