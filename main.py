@@ -256,38 +256,38 @@ class obj_sound:
     def __init__(self):
         self.sounddatabase=[]# sound database (name, filename, reference volume)
         # menu
-        self.sounddatabase.append(obj_onesound( 'pause', 'confirmation_001.ogg' , 0.7 ))
+        self.sounddatabase.append(obj_onesound( 'pause', 'confirmation_001.wav' , 0.7 ))
         self.sounddatabase.append(obj_onesound( 'nextpart', 'sfx_movement_portal1.wav' , 0.4 ))
-        self.sounddatabase.append(obj_onesound( 'menugo' , 'drop_001.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'menuback' , 'drop_004.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'erasesave' , 'minimize_005.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'cant' , 'error_008.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'overworldmove' , 'drop_001.ogg' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'menugo' , 'drop_001.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'menuback' , 'drop_004.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'erasesave' , 'minimize_005.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'cant' , 'error_008.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'overworldmove' , 'drop_001.wav' , 1 ))
         # player shots
-        self.sounddatabase.append(obj_onesound( 'shootself' , 'mouserelease1.ogg' , 0.5 ))
-        self.sounddatabase.append(obj_onesound( 'shootself2' , 'rollover1.ogg' , 0.5 ))
-        self.sounddatabase.append(obj_onesound( 'shootself3' , 'drop_002.ogg' , 0.5 ))
-        self.sounddatabase.append(obj_onesound( 'shootselfwater' , 'drop_004.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'slowdown' , 'footstep_grass_000.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'scrollup' , 'switch_004.ogg' , 0.2 ))
-        self.sounddatabase.append(obj_onesound( 'scrolldown' , 'switch_005.ogg' , 0.5 ))
-        self.sounddatabase.append(obj_onesound( 'slowtime' , 'laser3.ogg' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'shootself' , 'mouserelease1.wav' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'shootself2' , 'rollover1.wav' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'shootself3' , 'drop_002.wav' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'shootselfwater' , 'drop_004.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'slowdown' , 'footstep_grass_000.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'scrollup' , 'switch_004.wav' , 0.2 ))
+        self.sounddatabase.append(obj_onesound( 'scrolldown' , 'switch_005.wav' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'slowtime' , 'laser3.wav' , 0.5 ))
         self.sounddatabase.append(obj_onesound( 'jump' , 'sfx_movement_jump4.wav' , 0.2 ))
-        self.sounddatabase.append(obj_onesound( 'lava' , 'tick_004.ogg' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'lava' , 'tick_004.wav' , 0.5 ))
 
         # level
         self.sounddatabase.append(obj_onesound( 'finishready' , 'sfx_sounds_powerup2.wav' , 0.3 ))
         self.sounddatabase.append(obj_onesound( 'hitlever' , 'sfx_coin_double1.wav' , 0.3 ))
-        self.sounddatabase.append(obj_onesound( 'enemyfalls' , 'select_006.ogg' , 0.8 ))
-        self.sounddatabase.append(obj_onesound( 'shrink' , 'maximize_006.ogg' , 0.5 ))
-        self.sounddatabase.append(obj_onesound( 'hitspill' , 'switch_001.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'clifffall' , 'minimize_005.ogg' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'enemyfalls' , 'select_006.wav' , 0.8 ))
+        self.sounddatabase.append(obj_onesound( 'shrink' , 'maximize_006.wav' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'hitspill' , 'switch_001.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'clifffall' , 'minimize_005.wav' , 1 ))
         # collisions
-        self.sounddatabase.append(obj_onesound( 'mcircles' , 'impactSoft_medium_002.ogg' , 0.5 ))
-        self.sounddatabase.append(obj_onesound( 'hitbdry' , 'impactSoft_medium_000.ogg' , 0.8 ))
-        self.sounddatabase.append(obj_onesound( 'hit' , 'impactSoft_medium_001.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'hit_sp' , 'footstep_grass_003.ogg' , 1 ))
-        self.sounddatabase.append(obj_onesound( 'hit_pk' , 'impactSoft_heavy_001.ogg' , 0.2 ))
+        self.sounddatabase.append(obj_onesound( 'mcircles' , 'impactSoft_medium_002.wav' , 0.5 ))
+        self.sounddatabase.append(obj_onesound( 'hitbdry' , 'impactSoft_medium_000.wav' , 0.8 ))
+        self.sounddatabase.append(obj_onesound( 'hit' , 'impactSoft_medium_001.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'hit_sp' , 'footstep_grass_003.wav' , 1 ))
+        self.sounddatabase.append(obj_onesound( 'hit_pk' , 'impactSoft_heavy_001.wav' , 0.2 ))
         #
         # Channels
         self.nchannels=16# max number of channels allowed
@@ -6292,7 +6292,9 @@ timer=obj_timer()# Create the object timer for calls
 # pygame.mixer.pre_init(50000, -16, 2, 2048) # best one?
 # pygame.mixer.pre_init(44100, -16, 1, 2048) #
 # pygame.mixer.pre_init(22050, -16, 2, 1024)
-pygame.mixer.pre_init(22050, -16, 1, 1024)# 22050 is apparently the sampling rate default value
+# pygame.mixer.pre_init(22050, -16, 1, 1024)# 22050 is apparently the sampling rate default value
+# pygame.mixer.pre_init(22050, -16, 2, 1024)
+pygame.mixer.pre_init(44100, -16, 2, 1024)
 pygame.mixer.init()
 
 # Initialize pygame
