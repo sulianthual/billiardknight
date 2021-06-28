@@ -32,10 +32,10 @@ mv dist/code dist/$appname
 launchername='launcher'
 cp compile/forpyinstaller/$launchername dist/$appname
 
-# zip the game folder
+# zip the game folder (move it alongsize main folder)
 cd dist
 zip -r $appname $appname
-mv $appname.zip ../compile
+mv $appname.zip ../..
 cd ../
 
 #cleanup pyinstaller

@@ -1,19 +1,21 @@
 Instructions
 
 1.) This folder handles compiling of python code into an executable using pyinstaller.
-    If on windows, have also 7zip installed
+    It will only work if the project has a specific structure (e.g. like in projects bookofthings,bouldershower,billiardknight)
 
-2.) using terminal (or cmd in windows), go to within this folder
+2.) If on windows, have also 7zip installed 
 
-3.) edit script: the appnamepre will determine the output zip folder name
+3.) edit script: the appnamepre is project specific
 
-4.) launch script. If linux/mac: ./compile_linux and if windows: compile_win10
+4.) edit main.spec (notably the data= that should be project specific)
 
-5.) follow prompt (answer Yes if needed)
+5.) using terminal (or cmd in windows), go to within this folder
 
-6.) the code runs pyinstaller, then cleans up. 
+6.) launch script. If linux/mac: ./compile_linux and if windows: compile_win10
+    follow prompt (answer Yes if needed)
 
-7.) the output zip file is found along the main game folder
+7.) the code runs pyinstaller, then cleans up. 
+     the output zip file is found along the main game folder
  
 8.) Note for self: to convert a bash (.sh) to a batch (.bat):
 https://daniel-sc.github.io/bash-shell-to-bat-converter/
